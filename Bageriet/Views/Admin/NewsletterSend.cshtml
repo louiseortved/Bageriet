@@ -1,0 +1,82 @@
+﻿@model Bageriet.ViewModels.NewsletterVM
+@{
+    ViewBag.Title = "NewsletterSend";
+    Layout = "~/Views/Shared/_LayoutPageBackend.cshtml";
+}
+
+
+
+
+<div id="page-content">
+    <div class="content-header">
+        <ul class="breadcrumb breadcrumb-top">
+            <li>Newsletter</li>
+            <li>NewsletterList</li>
+            <li>Send Newslettter</li>
+
+        </ul>
+        <ul class="nav-horizontal text-center">
+            <li>
+                <a href="/Admin/NewsletterList"><i class="icon-calendar"></i> Newsletters</a>
+            </li>
+            <li class="active">
+                <a href="/Admin/NewsletterCreate"><i class="icon-paper-plane"></i> Send Newsletter</a>
+            </li>
+        
+        </ul>
+    </div>
+    
+
+
+    <div class="block block-alt-noborder">
+        <h3 class="sub-header">Send Newsletter : <b>@Model.Newsletter.Title</b> <small></small>
+        </h3>
+
+        @if (Model.Newsletter != null)
+        {
+            <form role="form" action="/Admin/Newslettersend" method="post">
+
+                <input type="hidden" name="title" id="title" value="@Model.Newsletter.Title"/>
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label" for="Email">Choose Emailsadr. </label>
+                    <select name="Email" multiple class="form-control">
+                        @foreach (var subs in Model.Subscribers.Where(x => x.IsSubscribed == true))
+                        {
+                            <option value="@subs.Email">@subs.Email</option>
+                        }
+
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="HtmlContent">Content</label>
+                    <textarea id="summernote" rows="15" name="HtmlContent" class="form-control">@Model.Newsletter.HtmlContent</textarea>
+                </div>
+
+
+                <button type="submit" class="btn btn-success">Send</button>
+
+            </form>
+        }
+        else
+        {
+            <p>Der findes ingen Newsletter</p>
+        }
+
+    </div>
+</div>
+
+
+@section scripts{
+    <link href="~/Scripts/summernote/summernote.css" rel="stylesheet" />
+    <script src="~/Scripts/summernote/summernote.min.js"></script>
+    <script>
+        $('#summernote').summernote({
+            height: 300,                 // set editor height
+            minHeight: null,             // set minimum height of editor
+            maxHeight: null,             // set maximum height of editor
+            focus: true                  // set focus to editable area after initializing summernote
+        });
+    </script>
+}

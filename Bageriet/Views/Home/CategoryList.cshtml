@@ -1,0 +1,16 @@
+﻿@model IEnumerable<Bageriet.Models.Category>
+
+
+<div class="sidebar-block">
+    <ul class="store-menu">
+        @{
+            foreach (var item in Model)
+            {
+              
+                    <li><a href="@Url.Action("Products", "Home", new{id = item.Id})">@item.Title</a></li>             
+            }
+        }
+
+
+    </ul>
+</div>

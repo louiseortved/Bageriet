@@ -1,0 +1,228 @@
+﻿@using System.Security.AccessControl
+@model Bageriet.ViewModels.ContentVM
+
+
+@{
+
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles{
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.9.1/sweetalert2.min.css" rel="stylesheet" />
+}
+
+<div id="page-content">
+
+    <div class="col-sm-12 col-xs-12 hidden-lg hidden-md navBg"></div>
+    <div id="myCarousel" class="carousel slide  hidden-sm hidden-xs" data-ride="carousel">
+
+
+
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <div class="carousel-inner" role="listbox">
+
+            @foreach (var img in Model.Sliders)
+            {
+                if (img == Model.Sliders.FirstOrDefault())
+                {
+                    <div class="item active">
+
+                        <img class="first-slide" src="~/Uploads/Slider/@img.ImageUrl" alt="First slide">
+                        <div class="container">
+                            <div class="carousel-caption">
+
+                            </div>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="item">
+
+                        <img class="first-slide" src="~/Uploads/Slider/@img.ImageUrl" alt="First slide">
+                        <div class="container">
+                            <div class="carousel-caption">
+
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            }
+
+            <div class="col-md-9 col-md-push-2 col-sm-6 col-xs-12 col-xs-push-12 sliderbox" style="position: absolute; top: 40%;">
+
+                <h1 class="sliderboxHeading">Vi elsker at lave brød</h1>
+
+
+
+
+            </div>
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+    <div class="row About" style="margin: 0;">
+        <div class="col-md-12 text-center">
+            <h1>Vi skaber lækkert! brød</h1>
+            <h5>Loreem ipsum est doloret </h5>
+        </div>
+        
+        <div class="col-md-12 text-center">
+        @foreach (var news in Model.News)
+        {
+            <div class=" col-lg-3 col-md-3 col-md-push-1" >
+                <div class="col-md-9 col-xs-12 col-sm-9 col-sm-push-4 img-container">
+                    <img class="img-rounded"  src="/Uploads/News/@news.ImageUrl" alt="@news.Title">
+                    <h3 class="text-uppercase About_textH3">
+                        <b>@news.Title</b>
+                    </h3>
+                    <h5 class="About_text">@news.Content</h5>
+                </div>
+            </div>
+        }
+
+        </div>
+    </div>
+
+
+    <div class="row" style="margin: 0;">
+        <div class="col-md-12 col-sm-12 col-xs-12 newsletterbg">
+            <div class="col-md-12 col-sm-12 col-xs-12 text-center newsletterHeading">
+                <h3>
+                    Tilmeld dig vores nyhedsbrev
+
+                </h3>
+                <p class="newsletterText">Der er mange tilgængelige udgaver af Lorem Ipsum, men de fleste udgaver har gennemgået forandringer</p>
+            </div>
+
+            <div class="col-md-6 col-md-push-3">
+
+                @Html.Action("_AddSubscriber", "Home")
+            </div>
+
+        </div>
+    </div>
+    <div class="row newsContent" style="margin: 0;">
+        <div class="col-md-12 text-center newsContent">
+            <h1>Nyeste bagværk</h1>
+            <div class="col-md-4 col-md-push-4">
+                <h5 class="text-center">Der er mange tilgængelige udgaver af Lorem Ipsum, men de fleste udgaver har gennemgået forandringer, når nogen har tilføjet humor eller tilfældige ord, som på ingen måde ser ægte ud</h5>
+            </div>
+
+            <div class=" col-lg-8 col-lg-push-2 col-md-8 col-md-push-2 newsImg">
+                @foreach (var item in Model.Products)
+                {
+                    <div class="col-md-3 col-lg-3 newsBox ">
+                        <div class="col-md-12">
+                            <img class="img-responsive img-news" src="/Uploads/Products/@item.ImageUrl" alt="@item.Title" />
+                        </div>
+                        <div class=" col-lg-12 col-md-12">
+                            @if (item.Comments.Count == 0)
+                            {
+                                <p>Der er ingen kommentarer endnu! </p>
+
+
+                            }
+                            else
+                            {
+                                <p>
+                                    <i class="icon-bubble"></i> <a href="#" title="">@item.Comments.Count Kommentar</a>
+                                </p>
+
+                            }
+
+
+                        </div>
+                        <div class="col-md-6 col-md-push-3 col-lg-6 col-sm-12 col-xs-12">
+                            <p>@item.Title</p>
+                        </div>
+                        <div class="col-md-12">
+                            <p>
+                                @(item.Description.Length > 65 ? item.Description.Substring(0, 65) : item.Description)
+                            </p>
+                        </div>
+                        <div class="col-md-12">
+                            <a href="/Home/ProductDetail/@item.Id" class="btn btn-default prod-btn">SE MERE</a>
+                        </div>
+                    </div>
+                }
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+
+
+@section scripts
+{
+    <script src="~/Scripts/jquery-3.2.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.js"></script>
+
+
+    <script>
+        $("#SignUp").on("submit",
+            function () {
+                var $this = $(this);
+                var values = $this.serialize();
+                event.preventDefault();
+
+                $.ajax({
+                    type: $this.attr("method"),
+                    url: $this.attr("action"),
+                    data: values,
+                    datatype: "Json",
+                    success: function () {
+                        console.log("hej");
+                        //$("#info-boxContact").addClass("alert-success");
+                        //$("#info-boxContact").removeClass("alert-danger");
+                        //$("#info-boxContact").text("Tak for din tilmeldning");
+                        //$("#info-boxContact").fadeIn().delay(500).fadeOut();
+                        swal({
+                            title: "Success!",
+                            text: "Du har nu tilmeldt dig vores nyhedsbrev",
+                            type: "success"
+
+                        });
+
+                        $this.trigger("reset");
+
+                    },
+                    error: function () {
+                        swal({
+                            title: "Error?",
+                            text: "HOV.....noget gik galt- prøv igen",
+                            type: "error"
+
+                        });
+                    }
+
+
+                });
+
+            });
+
+    </script>
+
+
+
+}
+
+

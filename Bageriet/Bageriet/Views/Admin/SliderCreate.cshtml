@@ -1,0 +1,94 @@
+﻿
+@{
+    ViewBag.Title = "SliderCreate";
+    Layout = "~/Views/Shared/_LayoutPageBackend.cshtml";
+}
+
+
+
+<div id="page-content">
+    <div class="content-header">
+
+        <ul class="nav-horizontal text-center">
+            <li>
+                <a href="/admin/index"><i class="fa fa-tachometer"></i> Dashboard</a>
+            </li>
+            <li>
+                <a href="/admin/eventlist"><i class="fa fa-calendar"></i> Events</a>
+            </li>
+            <li>
+                <a href="/admin/donationlist"><i class="fa fa-money"></i> Donations</a>
+            </li>
+            <li>
+                <a href="/admin/storieslist"><i class="fa fa-folder-open"></i> Stories</a>
+            </li>
+            <li class="active">
+                <a href="/admin/contentlist"><i class="fa fa-users"></i> About Us</a>
+            </li>
+        </ul>
+    </div>
+    <div class="row text-center">
+        <div class="col-sm-6 col-lg-6">
+            <a href="/Admin/SliderCreate" class="widget widget-hover-effect2">
+                <div class="widget-extra themed-background-success">
+                    <h4 class="widget-content-light"><strong>Add New</strong> Image to slider(Index)</h4>
+                </div>
+                <div class="widget-extra-full"><span class="h2 text-success animation-expandOpen"><i class="fa fa-plus"></i></span></div>
+            </a>
+        </div>
+
+
+        <div class="col-sm-6 col-lg-6">
+            <a href="javascript:void(0)" class="widget widget-hover-effect2">
+                <div class="widget-extra themed-background-dark">
+                    <h4 class="widget-content-light"><strong>All</strong> Contents</h4>
+                </div>
+                <div class="widget-extra-full"><span class="h2 themed-color-dark animation-expandOpen">42</span></div>
+            </a>
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="block block-fixed-height">
+                <div class="block-title">
+                    <h2><i class="fa fa-pencil"></i> <strong>Opret</strong> Slider</h2>
+                </div>
+
+                <form action="/Admin/SliderCreate" method="post" id="sliderCreate" enctype="multipart/form-data">
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="files">Image</label>
+                        <div class="col-md-8">
+                            <input multiple id="file" type="file" name="files" class="form-control" placeholder="Upload et nyt billede" required />
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="form-group form-actions">
+                        <div class="col-md-9 col-md-offset-3">
+                            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-floppy-o"></i> Gem</button>
+                            @*<a href="@Url.Action("ProductList")" type="reset" class="btn btn-sm btn-warning"><i class="fa fa-repeat"></i> Fortryd</a>*@
+
+
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+

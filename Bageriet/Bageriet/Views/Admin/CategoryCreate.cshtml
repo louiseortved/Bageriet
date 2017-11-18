@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Bageriet.Models.Category>
+@{
+    ViewBag.Title = "CategoryCreate";
+    Layout = "~/Views/Shared/_LayoutPageBackend.cshtml";
+}
+
+
+<div id="page-content">
+    <div class="content-header">
+        <ul class="breadcrumb breadcrumb-top">
+            <li>Category</li>
+            <li>Add new Category</li>
+
+        </ul>
+        <ul class="nav-horizontal text-center">
+            <li>
+                <a href="/Admin/CategoryList"><i class="icon-bag"></i> Categories</a>
+            </li>
+            <li>
+                <a href="/Admin/CategoryCreate"><i class="icon-pencil"></i> Create Category</a>
+            </li>
+
+        </ul>
+    </div>
+ 
+    <div class="block block-alt-noborder">
+        <h3 class="sub-header">Add <small>a new Category</small></h3>
+        <form role="form" action="/Admin/CategoryCreate" id="categoryCreate"method="post">
+            @*<div class="form-group">
+                <label class="control-label" for="Parent">Parent</label>
+                <select id="Parent" name="ParentId" class="form-control" required="">
+                    <option>If empty, you will be adding a ParentCategory</option>
+                    @foreach (var item in Model)
+                    {
+                        <option value="@item.Id">@item.Title</option>
+                    }
+                </select>
+            </div>*@
+
+
+
+            <div class="form-group">
+                <label class="control-label" for="Title">Title</label>
+                <input type="text" class="form-control" name="Title" placeholder="Add a Categorytitle" required="">
+            </div>
+
+            <button type="submit" class="btn btn-default"><span></span>Save</button>
+            <a href="@Url.Action("CategoryList")" type="reset" class="btn btn-default">Cancel</a>
+
+        </form>
+    </div>
+</div>
+
+
+
+

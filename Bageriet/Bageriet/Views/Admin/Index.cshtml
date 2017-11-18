@@ -1,0 +1,83 @@
+﻿@model Bageriet.ViewModels.DashboardVM
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPageBackend.cshtml";
+}
+
+<section id="main-content">
+    <div id="page-content">
+        <div class="content-header content-header-media">
+
+            <div class="header-section">
+                <div class="row">
+                    <div class="col-md-4 col-lg-6 hidden-xs hidden-sm">
+                        <h1>Welcome <strong>Admin</strong><br><small>You Look Awesome!</small></h1>
+                    </div>
+                </div>
+            </div>
+
+            <img src="~/Content/styles/Images/freestocks-org-229658.png" alt="header image" class="animation-pulseSlow">
+        </div>
+        <div class="content-header">
+
+            <ul class="nav-horizontal text-center">
+
+                <li>
+                    <a href="/Admin/NewsList"><i class="fa fa-newspaper-o"></i> News</a>
+                </li>
+                <li>
+                    <a href="/Admin/ProductList"><i class="fa fa-shopping-bag"></i> Products</a>
+                </li>
+                <li>
+                    <a href="/Admin/NewsletterList"><i class="fa fa-envelope-open"></i> Newsletter</a>
+                </li>
+                <li>
+                    <a href="/Account/UserList"><i class="icon-users"></i> Users</a>
+                </li>
+            </ul>
+
+
+        </div>
+
+        <div class="row text-center">
+            <div class="col-sm-6 col-lg-3">
+                <a href="/Admin/ProductList" class="widget widget-hover-effect2">
+                    <div class="widget-extra themed-background">
+                        <h4 class="widget-content-light"><strong>All</strong> Products</h4>
+                    </div>
+                    <div class="widget-extra-full"><span class="h2 animation-expandOpen">@Model.ProductCount</span></div>
+                </a>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <a href="/Admin/NewsList" class="widget widget-hover-effect2">
+                    <div class="widget-extra themed-background-dark">
+                        <h4 class="widget-content-light"><strong>All</strong> News</h4>
+                    </div>
+                    <div class="widget-extra-full"><span class="h2 themed-color-dark animation-expandOpen">@Model.NewsCount</span></div>
+                </a>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <a href="/Admin/MailList" class="widget widget-hover-effect2">
+                    <div class="widget-extra themed-background-dark">
+                        <h4 class="widget-content-light"><strong>New</strong> Messages</h4>
+                    </div>
+                    <div class="widget-extra-full"><span class="h2 themed-color-dark animation-expandOpen">@Model.MailCount</span></div>
+                </a>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <a href="/Account/UserList" class="widget widget-hover-effect2">
+                    <div class="widget-extra themed-background-dark">
+                        <h4 class="widget-content-light"><strong>Total</strong> Users</h4>
+                    </div>
+                    <div class="widget-extra-full"><span class="h2 themed-color-dark animation-expandOpen">@Model.UserCount</span></div>
+                </a>
+            </div>
+        </div>
+
+
+
+
+
+
+    </div>
+</section>

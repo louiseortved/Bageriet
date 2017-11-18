@@ -1,0 +1,52 @@
+﻿@model Bageriet.Models.Brand
+
+@{
+    ViewBag.Title = "BrandCreate";
+    Layout = "~/Views/Shared/_LayoutPageBackend.cshtml";
+}
+
+<div id="page-content">
+    <div class="content-header">
+
+        <ul class="breadcrumb breadcrumb-top">
+            <li>Brand</li>
+            <li>Add new Brand</li>
+
+        </ul>
+
+        <ul class="nav-horizontal text-center">
+            <li>
+                <a href="/Admin/BrandList"><i class="icon-bag"></i> Brands</a>
+            </li>
+            <li>
+                <a href="/Admin/BrandCreate"><i class="icon-pencil"></i> Create Brand</a>
+            </li>
+        </ul>
+        
+        
+
+    </div>
+    <div class="block block-alt-noborder">
+        <h3 class="sub-header">Add <small>a new Brand</small></h3>
+        <form role="form" action="/Admin/BrandCreate" method="post" id="brandCreate" enctype="multipart/form-data">
+
+            <div class="form-group">
+                <label class="control-label" for="Title">Title</label>
+                <input type="text" class="form-control" name="Title" placeholder="Add Title" required="">
+            </div>
+            
+            <div class="form-group">
+                <label class=" control-label" for="image">Image</label>
+                <input id="image" type="file" name="file" class="form-control" placeholder="Upload Image" required=""/>   
+            </div>
+
+            <button type="submit" class="btn btn-default">Save</button>
+            <a href="@Url.Action("BrandList")" type="reset" class="btn btn-default">Cancel</a>
+
+        </form>
+    </div>
+</div>
+
+
+
+

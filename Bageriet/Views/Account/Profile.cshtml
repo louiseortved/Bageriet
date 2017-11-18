@@ -1,0 +1,86 @@
+﻿@model Bageriet.Models.ApplicationUser
+
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div id="page-content">
+    <div class="col-md-12 navBg"></div>
+
+    <div class="row">
+        <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="Userpanel">
+                <div class="Usercontent">
+                 
+                             @*Current avatar*@ 
+                            
+                                @if (Model.ImageUrl != null )
+                                {
+                                    <img class="img-responsive crop-avatar" src="~/Uploads/Users/@Model.ImageUrl" alt="Avatar" style="width: 50%;margin-left:auto;margin-right:auto; margin-top: 50px;">
+
+                                }
+                                else
+                                {
+
+                                    <img class="img-responsive avatar-view" src="/Content/Styles/Images/avatar-admin-copy_medium.png" alt="Avatar" style="margin-left: 50px;">
+                                }
+                 
+                    <p class="Username text-center">@Model.FirstName @Model.LastName</p>
+                    <p class="Userpos text-center">@Model.Email</p>
+
+
+                    <div class="text-center">
+                        <a class="btn btn-default"><i class="icon-plus"></i> Follow</a>
+                        <a class="btn btn-default"><i class="icon-envelope"></i> Message</a>
+                    </div>
+                    <hr>
+                    <div>
+                        <h5 class="text-bold text-center">About</h5>
+                        <p>@Model.Description</p>
+                        @*<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>*@
+                    </div>
+                    <hr>
+                    <ul class="list-unstyled" style="margin-left: 25px;">
+                        <li>
+                            <i class="icon-pin"></i> @Model.Adress, @Model.Country
+                        </li>
+
+                        <li>
+                            <i class="icon-briefcase"></i> @Model.Profession
+                        </li>
+
+                        <li class="m-top-xs">
+                            <i class="icon-globe"></i>
+                            <a class="text-primary" href="http://www.google.dk" target="_blank">www.google.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 col-sm-8 col-xs-12">
+            <div class="Userpanel">
+                <div class="Usercontent">
+                    <ul class="nav nav-tabs">
+                        <li>
+                            <a href="#tab_1" data-toggle="tab" aria-expanded="true"> Change Profileimage </a>
+                        </li>
+                        <li class="active">
+                            <a href="#tab_2" data-toggle="tab" aria-expanded="true"> Account Settings </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane" id="tab_1">
+                                @Html.Action("_EditProfilePicture", "Account")
+                            </div>
+                        <div class="tab-pane" id="tab_2">
+                            @Html.Action("_EditUser", "Account");
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

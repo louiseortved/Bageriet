@@ -1,0 +1,43 @@
+﻿@model Bageriet.Models.Mail
+
+
+<form action="/Home/_Mail" method="post" id="mailForm">
+
+
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+
+        <div class="col-md-12">
+            <input type="text" class="form-control" name="name" placeholder="Dit navn...." style="border: none; color: #9d9d9d; background-color: #eeeeee; margin:10px" required>
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        <div class="col-md-12">
+            <input type="text" class="form-control" name="email" placeholder="Din Email" style="border: none; color: #9d9d9d; background-color: #eeeeee; margin:10px" required>
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        <div class="col-md-12">
+            <textarea name="content" rows="10" class="form-control-text" minlength="10" placeholder="Din besked...." style="border: none; color: #9d9d9d; background-color: #eeeeee; margin: 10px; " required></textarea>
+
+        </div>
+    </div>
+
+
+
+
+    <div class="form-group">
+        <div class="col-md-8 col-md-push-8">
+            <button type="submit" value="Send" class="btn btn-default btn-contact">Send</button>
+        </div>
+    </div>
+
+    @*<div id="info-boxContact"></div>*@
+
+</form>
+

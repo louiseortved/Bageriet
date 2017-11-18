@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Bageriet.Models.Comment>
+
+
+
+        
+        @foreach (var item in Model)
+        {
+            <div class="col-md-9 col-md-push-2 col-sm-9 col-sm-push-2 col-xs-12 commentUserBox">
+                <div class="col-md-2 col-sm-2 col-xs-12">
+
+
+                    @if (item.User.ImageUrl != null)
+                    {
+                        <img class="img-rounded" src="~/Uploads/Users/@item.User.ImageUrl" style="border-radius: 64%!important;"/>
+                    }
+                    else
+                    {
+                        <img class="img-rounded" src="~/Content/Styles/Images/avatar-admin-copy_medium.png"/>
+
+                    }
+
+
+                </div>
+                <div class="col-md-7 col-sm-7 col-xs-12">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        @if (@item.User.FirstName == null)
+                        {
+                            <h5><b>@item.User.UserName</b> </h5>
+                        }
+                        else
+                        {
+                            <h5><b>@item.User.FirstName @item.User.LastName</b></h5>
+                        }
+                        
+                   
+                        <span class="comment-date">@item.DateCreated.ToString("dd MMMM") @item.DateCreated.ToString("t") @item.DateCreated.ToString("yyyy")</span>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-4 col-xs-push-6">
+                        <h5 class="text-muted">
+                            @item.Content
+
+                        </h5>
+                    </div>
+                </div>
+            </div>
+
+
+        }

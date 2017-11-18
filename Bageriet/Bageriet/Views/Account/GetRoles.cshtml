@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewBag.Title = "GetRoles";
+    Layout = "~/Views/Shared/_LayoutPageBackend.cshtml";
+}
+
+
+
+<div id="page-content">
+<div class="content-header">
+    <ul class="breadcrumb breadcrumb-top">
+        <li>Roles</li>
+        <li>Get Roles</li>
+
+    </ul>
+    <div class="content-header-media" style="margin-top: -20px;">
+        <div class="header-section" style="background: rgba(0, 0, 0, 0.69);">
+            <div class="row">
+                <div class="col-md-4 col-lg-6 hidden-xs hidden-sm">
+                    <h1>Get Roles for a specific user</h1>
+                </div>
+            </div>
+        </div>
+
+        <img src="/Content/Styles/Images/ian-schneider-66374.png" alt="Alternate Text" />
+    </div>
+
+
+</div>
+  
+    <div class="block block-alt-noborder" style="min-height: 180px">
+
+        <form role="form" action="#" method="post">
+
+            <div class="form-group">
+                <label class="control-label" for="UserName">UserName</label>
+
+                @Html.DropDownList("UserName", (IEnumerable<SelectListItem>)ViewBag.Users,
+                    "Select user", new { @class = "form-control" })
+
+
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <input type="submit" value="Get roles for this user" class="btn btn-default btn-md" style="float: right" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-8">
+
+                    @if (ViewBag.RolesForThisUser != null)
+                    {
+                        <div>
+                            <h4>Roles for this User</h4>
+                            <ol>
+                                @foreach (var item in ViewBag.RolesForThisUser)
+                                {
+                                    <li>@item</li>
+                                }
+                            </ol>
+                        </div>
+                    }
+
+              
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>

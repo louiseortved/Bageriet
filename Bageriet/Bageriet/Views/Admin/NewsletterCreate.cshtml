@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "NewsletterCreate";
+    Layout = "~/Views/Shared/_LayoutPageBackend.cshtml";
+}
+
+
+
+
+
+<div id="page-content">
+    <div class="content-header">
+        <ul class="breadcrumb breadcrumb-top">
+            <li>Newsletter</li>
+            <li>NewsletterCreate</li>
+
+        </ul>
+        <ul class="nav-horizontal text-center">
+            <li>
+                <a href="/Admin/NewsletterList"><i class="icon-calendar"></i> Newsletters</a>
+            </li>
+            <li>
+                <a href="/Admin/NewsletterCreate"><i class="icon-drawer"></i> Create Newsletter</a>
+            </li>
+        
+        </ul>
+    </div>
+    <div class="block block-alt-noborder">
+        <h3 class="sub-header">Add Newsletter <small></small></h3>
+
+        <form role="form" action="/Admin/NewsletterCreate" id="newsletterCreate" method="post">
+
+
+            <div class="form-group">
+                <label class="control-label" for="Title">Title</label>
+                <input type="text" class="form-control" name="Title" placeholder="Add a Title" required="">
+            </div>
+
+            <div class="form-group">
+                <label class="control-label" for="HtmlContent">Content</label>
+                <textarea id="summernote" rows="15" name="HtmlContent" class="form-control" required=""></textarea>
+            </div>
+
+
+            <button type="submit" class="btn btn-default">Gem</button>
+
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+@section scripts{
+    <link href="~/Scripts/summernote/summernote.css" rel="stylesheet" />
+    <script src="~/Scripts/summernote/summernote.min.js"></script>
+    <script>
+        $('#summernote').summernote({
+            height: 300,                 // set editor height
+            minHeight: null,             // set minimum height of editor
+            maxHeight: null,             // set maximum height of editor
+            focus: true                  // set focus to editable area after initializing summernote
+        });
+    </script>
+}

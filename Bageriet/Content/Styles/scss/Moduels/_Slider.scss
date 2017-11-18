@@ -1,0 +1,16 @@
+﻿.block-fixed-height{
+    height:180px;
+}
+
+.btn-default {
+    margin-top:10px;
+    color: #1abc9c!important;
+    background-color: #ffffff!important;
+
+  
+
+    &:hover {
+        color: #ffffff!important;
+        background-color: #1abc9c!important;
+    }
+}

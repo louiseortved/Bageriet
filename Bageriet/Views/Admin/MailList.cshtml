@@ -1,0 +1,117 @@
+﻿
+@{
+    ViewBag.Title = "MailList";
+    Layout = "~/Views/Shared/_LayoutPageBackend.cshtml";
+}
+
+
+
+
+<div id="page-content">
+    <div class="content-header">
+        <ul class="breadcrumb breadcrumb-top">
+            <li>Mail</li>
+            <li>MailList</li>
+
+        </ul>
+        <div class="content-header-media" style="margin-top: -20px;">
+            <div class="header-section" style="background: rgba(0, 0, 0, 0.69);">
+                <div class="row">
+                    <div class="col-md-4 col-lg-6 hidden-xs hidden-sm">
+                        <h1>Messages</h1>
+                    </div>
+                </div>
+            </div>
+            <img src="/Content/Styles/Images/joanna-kosinska-255355.png" class="" alt="Alternate Text"/>
+        </div>
+    </div>
+    <div class=" row">
+        <div class="col-md-2" id="indbox-menu">
+            @Html.Action("_MailNav", "Admin")
+        </div>
+        <div class="col-md-4 col-sm-12" id="inbox-wrapper">
+            @Html.Action("_MailList", "Admin")
+        </div>
+        <div class="col-md-6 col-sm-12" id="view-mail-wrapper">
+            @Html.Action("_GetMail", "Admin")
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script>
+    $(document).ready(function() {
+        $("#inbox-wrapper section").hide();
+        $("#inbox-wrapper section#Inbox").show();
+    });
+
+    $(document).on("click", "#inbox-wrapper td",
+        function() {
+            var _ = $(this).parent("tr[data-Mail]");
+            var list = _.parents("section").attr("id");
+            $("#view-mail-wrapper").load("@Url.Action("_GetMail", "Admin")/" + _.data("mail"));
+            $("#inbox-wrapper .Refresh").trigger("click");
+            });
+
+        $(document).on("click", ".compose-nav a",
+            function() {
+                var _ = $(this);
+                var inboxlist;
+                if (_.data("target") === "Inbox") {
+                    inboxlist = $("#inbox-wrapper");
+                    inboxlist.children("section").hide();
+                    inboxlist.children("section#Inbox").show();
+                } else {
+                    inboxlist = $("#inbox-wrapper");
+                    inboxlist.children("section").hide();
+                    inboxlist.children("section#Trash").show();
+                }
+            });
+
+        $(document).on("keyup",
+            ".input-append",
+            function () {
+                var _ = $(this);
+                var query = _.children("input").val();
+                var list = _.parents("section").attr("id");
+                query = _.children("input").val();
+                $("#inbox-wrapper").load("@Url.Action("_MailList", "Admin")?query=" + query + "&list=" + list,
+                    function () {
+                        $("#inbox-wrapper").children("section[id!=" + list + "]").hide();
+                        $("#inbox-wrapper").children("section[id="+list+"]").show();
+                        $("section[id=" + list + "] .input-append input").first().trigger("focus").val(query);
+                    });
+            });
+
+        $(document).on("click",
+            ".Refresh",
+            function () {
+                var _ = $(this);
+                var inboxlist = $("#inbox-wrapper");
+                var list = $("#inbox-wrapper section").not(":hidden").prop("id");
+                console.log(list);
+                    $("#inbox-wrapper").load("@Url.Action("_MailList", "Admin")/",
+                        function() {
+                            if (list === "Trash") {
+                                inboxlist.children("section#Inbox").hide();
+                                inboxlist.children("section#Trash").show();
+                            }
+                            else {
+                                inboxlist.children("section#Trash").hide();
+                                inboxlist.children("section#Inbox").show();
+                            }
+                        });
+            });
+
+        $(document).on("click",
+            "button.trash",
+            function() {
+                var _ = $(this);
+                var inboxlist = $("#inbox-wrapper");
+                var list = $("#inbox-wrapper section").not(":hidden").prop("id");
+                $("#view-mail-wrapper").load("@Url.Action("_TrashMail", "Admin")/" + _.data("id"));
+                $("#view-mail-wrapper").load("@Url.Action("_GetMail", "Admin")/");
+                $("#indbox-menu").load("@Url.Action("_MailNav", "Admin")");
+                $("#inbox-wrapper .Refresh").trigger("click");
+            });
+    </script>
+}

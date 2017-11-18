@@ -1,0 +1,116 @@
+﻿@model Bageriet.ViewModels.RegisterViewModel
+@{
+    Layout = null;
+    ViewBag.Title = "Register";
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/Styles/css/FrontendLayout.css" rel="stylesheet" />
+</head>
+<body>
+
+    <img src="~/Content/styles/Images/header-bg-image.jpg" alt="Login Full Background" class="full-bg animation-pulseSlow">
+    <div id="login-container" class="animation-fadeIn">
+        <div class="login-title text-center">
+            <h1><strong>Register</strong></h1>
+        </div>
+        <div class="block push-bit">
+            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <h4>Opret ny konto</h4>
+                <hr />
+                @Html.ValidationSummary("", new { @class = "text-danger" })
+            
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="icon-envelope"></i></span>
+                            <input type="text" id="Email" name="Email" class="form-control input-lg" placeholder="Email">
+                        </div>
+                    </div>
+                </div>
+
+               
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="icon-lock"></i></span>
+                            <input type="password" id="Password" name="Password" class="form-control input-lg" placeholder="Password">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="icon-lock"></i></span>
+                            <input type="password" id="ConfirmPassword" name="ConfirmPassword" class="form-control input-lg" placeholder="Confirm Password">
+                        </div>
+                    </div>
+                </div>
+          
+                <div class="form-group form-actions">
+                    <div class="col-xs-12 text-right">
+                        <button type="submit" class="btn btn-default" value="Log in"><i class="fa fa-angle-right"></i> Register</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-xs-12 text-center">
+
+                        <a href="/Home/Login" id="link-register-login"><small>Allerede Bruger?</small></a>
+
+                    </div>
+                </div>
+            }
+
+            @*<section id="loginForm">
+
+                @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal login-form form-bordered form-control-borderless", role = "form" }))
+            {
+
+                    @Html.AntiForgeryToken()
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+            
+
+
+
+
+
+
+
+               
+
+           
+                }
+
+            </section>*@
+
+
+
+
+
+
+
+        </div>
+    </div>
+    @section Scripts {
+
+
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+</body>
+
+
+</html>

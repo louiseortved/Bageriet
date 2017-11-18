@@ -1,0 +1,10 @@
+﻿[
+  {
+    "outputFile": "Content/Styles/css/BackendLayout.css",
+    "inputFile": "Content/Styles/scss/BackendLayout.scss"
+  },
+  {
+    "outputFile": "Content/Styles/css/FrontendLayout.css",
+    "inputFile": "Content/Styles/scss/FrontendLayout.scss"
+  }
+]

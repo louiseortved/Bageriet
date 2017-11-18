@@ -1,0 +1,9 @@
+﻿<div class="col-md-12">
+    <h4>Leave a Comment:</h4>
+    <form action="@Url.Action("_CreateComment", "Admin")" method="post">
+        <input type="number" name="BlogId" value="@Model.Id" />
+        <textarea id="Comment" name="Comment" class="form-control" rows="4" placeholder="Enter you comment.."></textarea>
+        <button type="submit" class="btn btn-primary"><i class="fa fa-pencil"></i> Post</button>
+    </form>
+</div>
+

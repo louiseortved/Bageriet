@@ -1,0 +1,567 @@
+﻿/*LOGIN*/
+
+    .block {
+        margin: 0 0 10px;
+        padding: 20px 15px 1px;
+        background-color: #fff;
+        border: 1px solid #dbe1e8
+    }
+
+   
+    #to-top {
+        position: fixed;
+        bottom: 55px;
+        left: 5px;
+        border-radius: 3px;
+        padding: 0 12px;
+        font-size: 28px;
+        text-align: center;
+        color: #fff;
+        background-color: #000;
+        opacity: .1
+    }
+
+    #to-top:hover {
+        color: #fff;
+        background-color: #1bbae1;
+        text-decoration: none;
+        opacity: 1
+    }
+
+    #login-background {
+        width: 100%;
+        height: 224px;
+        overflow: hidden;
+        position: relative
+    }
+
+    #login-background > img {
+        position: absolute;
+        width: 2560px;
+        height: 400px;
+        left: 50%;
+        margin-left: -1280px
+    }
+
+    #login-alt-container, #login-container {
+        position: absolute;
+        width: 300px;
+        top: 10px;
+        left: 50%;
+        margin-left: -150px;
+        z-index: 1000;
+    }
+
+    #login-container .login-title {
+        padding: 20px 10px;
+        background: #444;
+        background: rgba(0,0,0,.6)
+    }
+
+    #login-alt-container h1, #login-container .login-title h1 {
+        font-size: 26px;
+        color: #fff
+    }
+
+    #login-alt-container h1 small, #login-container .login-title h1 small {
+        font-size: 16px;
+        color: #ddd
+    }
+
+    #login-container > .block {
+        border: none
+    }
+
+    #login-container .register-terms {
+        line-height: 30px;
+        margin-right: 10px;
+        float: left
+    }
+
+    img.full-bg {
+        min-height: 100%;
+        min-width: 1280px;
+        width: 100%;
+        height: auto;
+        position: fixed;
+        top: 0;
+        left: 0
+    }
+
+ 
+
+    
+
+    input[type=file] {
+        padding-top: 7px
+    }
+
+    input[type=text].form-control, input[type=password].form-control, input[type=email].form-control, textarea.form-control {
+        -webkit-appearance: none
+    }
+
+    .form-control {
+        font-size: 13px;
+        padding: 6px 8px;
+        margin: 1px 0;
+        color: #394263;
+        border-color: #dbe1e8
+    }
+
+    .form-control-borderless, .form-control-borderless .form-control, .form-control-borderless .input-group-addon, .form-control-borderless:focus {
+        border: transparent !important
+    }
+
+    .input-group {
+        margin-top: 1px;
+        margin-bottom: 1px
+    }
+
+    .input-group .form-control {
+        margin-top: 0
+    }
+
+    .form-control:focus {
+        border-color: #1bbae1
+    }
+
+
+login-container .input-group-addon {
+    min-width: 45px;
+    text-align: center;
+    background-color: none!important;
+    border-color: #dbe1e8
+}
+
+    .form-horizontal .control-label {
+        margin-bottom: 5px
+    }
+
+    .form-bordered {
+        margin: -15px -15px -1px
+    }
+
+   
+
+    .form-bordered fieldset legend {
+        margin: 0;
+        padding-left: 20px;
+        padding-right: 20px
+    }
+
+    .form-bordered .form-group {
+        margin: 0;
+        border: none;
+        padding: 15px;
+        border-bottom: 1px dashed #eaedf1
+    }
+
+    .form-bordered .form-group.form-actions {
+        background-color: #f9fafc;
+        border-bottom: none
+    }
+
+    .form-horizontal.form-bordered .form-group {
+        padding-left: 0;
+        padding-right: 0
+    }
+
+
+    
+    
+    
+   
+
+
+    .pagination > li > a, .pagination > li > span {
+        color: #1bbae1;
+        margin-left: 5px;
+        margin-right: 5px;
+        border: none !important;
+        border-radius: 25px !important
+    }
+
+    .pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover {
+        background-color: #1bbae1
+    }
+
+    .pager > li > a, .pager > li > span {
+        border-color: #eaedf1
+    }
+
+    .pager > li > a:hover, .pagination > li > a:hover {
+        background-color: #1bbae1;
+        border-color: #1bbae1;
+        color: #fff
+    }
+
+    .pager > li.disabled > a:hover {
+        border-color: #eaedf1
+    }
+
+    .btn {
+        margin: 1px 0;
+        background-color: #fff
+    }
+
+    .btn .fi, .btn .gi, .btn .hi, .btn .si {
+        line-height: 1
+    }
+
+    .btn.disabled, .btn[disabled], fieldset[disabled] .btn {
+        opacity: .4
+    }
+
+    .block-options .btn, .input-group .btn, .modal-content .btn {
+        margin-top: 0;
+        margin-bottom: 0
+    }
+
+
+    .btn-default {
+        background-color: #f1f3f6;
+        border-color: #dbe1e8;
+        color: #394263
+    }
+
+    .btn-default.btn-alt {
+        background-color: #fff
+    }
+
+    .btn-default:hover {
+        background-color: #eaedf1;
+        border-color: #c2c8cf
+    }
+
+    .btn-default.active, .btn-default.active:focus, .btn-default.active:hover, .btn-default.disabled, .btn-default.disabled.active, .btn-default.disabled:active, .btn-default.disabled:focus, .btn-default.disabled:hover, .btn-default.focus, .btn-default:active, .btn-default:active:focus, .btn-default:active:hover, .btn-default:focus, .btn-default[disabled].active, .btn-default[disabled].active:focus, .btn-default[disabled].focus, .btn-default[disabled]:active, .btn-default[disabled]:active:focus, .btn-default[disabled]:focus, .btn-default[disabled]:hover, .open .btn-default.dropdown-toggle, .open .btn-default.dropdown-toggle.focus, .open .btn-default.dropdown-toggle:focus, .open .btn-default.dropdown-toggle:hover, fieldset[disabled] .btn-default.active, fieldset[disabled] .btn-default.active:focus, fieldset[disabled] .btn-default.focus, fieldset[disabled] .btn-default:active, fieldset[disabled] .btn-default:active:focus, fieldset[disabled] .btn-default:focus, fieldset[disabled] .btn-default:hover {
+        background-color: #eaedf1;
+        border-color: #eaedf1
+    }
+
+
+
+
+
+
+
+    .btn.active, .form-control, .form-control:focus, .has-error .form-control:focus, .has-success .form-control:focus, .has-warning .form-control:focus, .navbar-collapse, .navbar-form, .navbar-form-custom .form-control:focus, .navbar-form-custom .form-control:hover, .open .btn.dropdown-toggle, .panel, .popover, .progress, .progress-bar {
+        -webkit-box-shadow: none;
+        box-shadow: none
+    }
+
+  
+
+    .push-bit {
+        margin-bottom: 10px !important
+    }
+
+  
+
+
+ 
+
+    @media screen and (min-width:768px) {
+        #login-background {
+            height: 400px
+        }
+
+        #login-background > img {
+            top: 0
+        }
+
+        #login-alt-container, #login-container {
+            width: 480px;
+            top: 186px;
+            margin-left: -240px;
+        }
+
+        .full-page-container {
+            width: 740px;
+            top: 120px;
+            padding: 20px;
+            margin-left: -370px
+        }
+
+        .full-page-section {
+            padding: 50px 0;
+            margin: 50px -20px
+        }
+
+        #page-content {
+            padding: 20px 20px 1px
+        }
+
+        .block, .block.full, .breadcrumb-top, .form-bordered .form-group, .header-section, .modal-body {
+            padding-left: 20px;
+            padding-right: 20px
+        }
+
+        .block .block-content-full {
+            margin: -20px -20px -1px
+        }
+
+        .block.full .block-content-full {
+            margin: -20px
+        }
+
+        .breadcrumb-top, .content-header, .content-top {
+            margin: -20px -20px 20px
+        }
+
+        .block, .draggable-placeholder, .widget {
+            margin-bottom: 20px
+        }
+
+        .block-title, .block-top, .form-bordered {
+            margin-left: -20px;
+            margin-right: -20px
+        }
+
+        .breadcrumb-top + .content-header, .content-header + .breadcrumb-top {
+            margin-top: -21px
+        }
+
+        .navbar-fixed-top .dropdown-menu {
+            max-height: none;
+            overflow-y: visible
+        }
+
+        .form-horizontal.form-bordered .form-group {
+            padding-left: 5px;
+            padding-right: 5px
+        }
+
+        .nav-tabs > li > a {
+            padding-left: 15px;
+            padding-right: 15px;
+            margin-left: 3px;
+            margin-right: 3px
+        }
+
+        .chatui-input, .chatui-people, .chatui-talk {
+            position: absolute
+        }
+
+        .chatui-input, .chatui-talk {
+            right: 250px;
+            left: 0
+        }
+
+        .chatui-people {
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 250px;
+            height: auto
+        }
+
+        .chatui-talk {
+            height: auto
+        }
+
+        .chatui-talk .chatui-talk-msg {
+            width: 50%;
+            margin-left: 50%
+        }
+
+        .chatui-talk .chatui-talk-msg.chatui-talk-msg-highlight {
+            margin-left: 0;
+            margin-right: 50%
+        }
+
+        .chatui-input {
+            bottom: 0
+        }
+    }
+
+    @media screen and (min-width:992px) {
+        #login-alt-container {
+            display: block
+        }
+
+        .sidebar-no-animations #sidebar, .sidebar-no-animations #sidebar-alt {
+            -webkit-transition: opacity .5s linear,background-color .2s ease-out;
+            transition: opacity .5s linear,background-color .2s ease-out
+        }
+
+        .sidebar-no-animations #main-container, .sidebar-no-animations.footer-fixed #page-content + footer, .sidebar-no-animations.header-fixed-bottom header.navbar-fixed-bottom, .sidebar-no-animations.header-fixed-top header.navbar-fixed-top {
+            -webkit-transition: none;
+            transition: none
+        }
+
+        .sidebar-alt-visible-xs #sidebar-alt, .sidebar-visible-xs #sidebar {
+            width: 0
+        }
+
+        .sidebar-alt-visible-xs #main-container, .sidebar-visible-xs #main-container {
+            margin-left: 0;
+            margin-right: 0
+        }
+
+        .sidebar-alt-visible-xs.footer-fixed #page-content + footer, .sidebar-alt-visible-xs.header-fixed-bottom header.navbar-fixed-bottom, .sidebar-alt-visible-xs.header-fixed-top header.navbar-fixed-top, .sidebar-visible-xs.footer-fixed #page-content + footer, .sidebar-visible-xs.header-fixed-bottom header.navbar-fixed-bottom, .sidebar-visible-xs.header-fixed-top header.navbar-fixed-top {
+            right: 0;
+            left: 0
+        }
+
+        #sidebar, #sidebar-alt, .sidebar-alt-partial #sidebar-alt, .sidebar-partial #sidebar {
+            width: 0;
+            opacity: .2
+        }
+
+        .sidebar-alt-partial #sidebar-alt, .sidebar-partial #sidebar {
+            width: 65px
+        }
+
+        .sidebar-alt-partial #sidebar-alt:hover, .sidebar-alt-visible-lg #sidebar-alt, .sidebar-alt-visible-lg.sidebar-alt-partial #sidebar-alt, .sidebar-partial #sidebar:hover, .sidebar-visible-lg #sidebar, .sidebar-visible-lg.sidebar-partial #sidebar {
+            width: 200px;
+            opacity: 1
+        }
+
+        .sidebar-alt-partial #sidebar-alt .sidebar-brand i, .sidebar-partial #sidebar .sidebar-brand i {
+            display: none
+        }
+
+        .sidebar-alt-partial #sidebar-alt:hover .sidebar-brand i, .sidebar-alt-visible-lg #sidebar-alt .sidebar-brand i, .sidebar-partial #sidebar:hover .sidebar-brand i, .sidebar-visible-lg #sidebar .sidebar-brand i {
+            display: inline-block
+        }
+
+        .sidebar-mini.sidebar-visible-lg-mini #sidebar .sidebar-header > span, .sidebar-mini.sidebar-visible-lg-mini #sidebar .sidebar-nav-mini-hide, .sidebar-mini.sidebar-visible-lg-mini #sidebar .sidebar-nav > li.active > ul {
+            display: none
+        }
+
+        .sidebar-partial #main-container {
+            margin-left: 65px
+        }
+
+        .sidebar-partial #sidebar:hover + #main-container, .sidebar-visible-lg #main-container {
+            margin-left: 200px
+        }
+
+        .sidebar-partial.footer-fixed #main-container #page-content + footer, .sidebar-partial.header-fixed-bottom header.navbar-fixed-bottom, .sidebar-partial.header-fixed-top header.navbar-fixed-top {
+            left: 65px
+        }
+
+        .sidebar-partial #sidebar:hover + #main-container #page-content + footer, .sidebar-partial #sidebar:hover + #main-container header.navbar-fixed-bottom, .sidebar-partial #sidebar:hover + #main-container header.navbar-fixed-top, .sidebar-visible-lg.footer-fixed #main-container #page-content + footer, .sidebar-visible-lg.header-fixed-bottom header.navbar-fixed-bottom, .sidebar-visible-lg.header-fixed-top header.navbar-fixed-top {
+            left: 200px
+        }
+
+        .sidebar-alt-partial #main-container {
+            margin-right: 65px
+        }
+
+        .sidebar-alt-partial #sidebar-alt:hover ~ #main-container, .sidebar-alt-visible-lg #main-container {
+            margin-right: 200px
+        }
+
+        .sidebar-alt-partial.footer-fixed #main-container #page-content + footer, .sidebar-alt-partial.header-fixed-bottom header.navbar-fixed-bottom, .sidebar-alt-partial.header-fixed-top header.navbar-fixed-top {
+            right: 65px
+        }
+
+        .sidebar-alt-partial #sidebar-alt:hover ~ #main-container #page-content + footer, .sidebar-alt-partial #sidebar-alt:hover ~ #main-container header.navbar-fixed-bottom, .sidebar-alt-partial #sidebar-alt:hover ~ #main-container header.navbar-fixed-top, .sidebar-alt-visible-lg.footer-fixed #main-container #page-content + footer, .sidebar-alt-visible-lg.header-fixed-bottom header.navbar-fixed-bottom, .sidebar-alt-visible-lg.header-fixed-top header.navbar-fixed-top {
+            right: 200px
+        }
+
+        .sidebar-mini.sidebar-visible-lg-mini #main-container {
+            margin-left: 40px
+        }
+
+        .sidebar-mini.sidebar-visible-lg-mini #main-container #page-content + footer, .sidebar-mini.sidebar-visible-lg-mini #main-container header.navbar-fixed-bottom, .sidebar-mini.sidebar-visible-lg-mini #main-container header.navbar-fixed-top {
+            left: 40px
+        }
+
+        .sidebar-mini.sidebar-visible-lg-mini #sidebar {
+            overflow: visible;
+            opacity: 1;
+            z-index: 1029
+        }
+
+        .sidebar-mini.sidebar-visible-lg-mini #sidebar .sidebar-content {
+            width: 40px
+        }
+
+        .sidebar-mini.sidebar-visible-lg-mini #sidebar .sidebar-header {
+            padding: 0;
+            margin: 5px 0;
+            border-top: 1px solid rgba(255,255,255,.1)
+        }
+
+        .sidebar-mini.sidebar-visible-lg-mini #sidebar .sidebar-nav li {
+            position: relative
+        }
+
+        .sidebar-mini.sidebar-visible-lg-mini #sidebar .sidebar-nav .sidebar-nav-menu + ul {
+            position: absolute;
+            width: 220px;
+            top: 0;
+            right: -220px;
+            margin: 0;
+            padding: 6px 5px;
+            border-left: 3px solid #1bbae1;
+            background-color: #394263
+        }
+
+        .sidebar-mini.sidebar-visible-lg-mini #sidebar .sidebar-nav ul a {
+            margin: 0;
+            padding-left: 10px;
+            border-left: none
+        }
+
+        .sidebar-mini.sidebar-visible-lg-mini #sidebar .sidebar-nav ul ul {
+            margin-left: 0
+        }
+
+        .sidebar-mini.sidebar-visible-lg-mini #sidebar .sidebar-nav .sidebar-nav-menu.open + ul {
+            display: block !important
+        }
+
+        .nav-horizontal a {
+            text-align: center;
+            min-width: 130px;
+            padding: 12px 15px
+        }
+
+        .nav-horizontal i {
+            display: block;
+            height: 55px;
+            margin-right: 0;
+            margin-bottom: 10px;
+            font-size: 42px;
+            padding: 10px
+        }
+    }
+
+    @media screen and (min-width:1200px) {
+        .header-fixed-bottom .sidebar-content, .header-fixed-top .sidebar-content {
+            padding-bottom: 0
+        }
+
+        article p {
+            font-size: 19px;
+            line-height: 1.9
+        }
+    }
+
+    @media print {
+        #page-content + footer, #sidebar, #sidebar-alt, #to-top, .block-title .block-options, .breadcrumb-top, .content-header {
+            display: none !important
+        }
+
+        #page-content {
+            min-height: 0 !important;
+            height: auto !important;
+            padding: 0 !important
+        }
+
+        #main-container {
+            margin: 0 !important
+        }
+
+        .block, .block.full {
+            border: none !important;
+            padding: 0 !important
+        }
+
+        .block-title {
+            margin: 0 0 20px !important
+        }
+    }

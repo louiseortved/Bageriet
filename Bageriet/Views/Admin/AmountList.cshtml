@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Bageriet.Models.Amount>
+@{
+    ViewBag.Title = "AmountList";
+    Layout = "~/Views/Shared/_LayoutPageBackend.cshtml";
+}
+
+
+    
+
+
+<div id="page-content">
+    <div class="content-header">
+
+        <ul class="breadcrumb breadcrumb-top">
+            <li>Amounts</li>
+            <li>Add new Amount</li>
+
+        </ul>
+
+        <ul class="nav-horizontal text-center">
+            <li>
+                <a href="/Admin/AmountList"><i class="icon-bag"></i> Amounts</a>
+            </li>
+            <li>
+                <a href="/Admin/AmountsCreate"><i class="icon-pencil"></i> Create Amounts</a>
+            </li>
+        </ul>
+
+
+
+    </div>
+    <div class="block block-alt-noborder">
+        <a class="btn-top btn btn-default pull-right" style="margin-right: 15px;" href="/Admin/AmountCreate"> <span class="fa fa-plus"></span> Create New</a>
+        <h3 class="sub-header">
+            Amount
+        </h3>
+
+        <table class="table table-striped">
+
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th class="text-right">Actions</th>
+            </tr>
+            </thead>
+
+            <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Title</td>
+                    <td style="text-align: right">
+                        <a class="btn btn-default" href="/admin/AmountDelete/@item.Id" aria-label="Settings">
+                            <i class="icon-trash" aria-hidden="true"></i>
+                            Delete
+                        </a>
+                    
+                        <a class="btn btn-default" href="@Url.Action("AmountEdit", new {id = item.Id})" aria-label="Settings">
+                            <i class="icon-wrench" aria-hidden="true"></i>
+                            Edit
+                        </a>
+                    </td>
+                </tr>
+            }
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+

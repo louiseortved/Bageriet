@@ -1,0 +1,106 @@
+﻿.compose-nav {
+    li {
+        &.active {
+            a {
+                background-color: transparent !important;
+                color: #000 !important;
+            }
+        }
+
+        a {
+            color: #4e4e4e;
+        }
+    }
+}
+
+
+.mail-option {
+    padding-bottom: 15px;
+}
+
+.table-inbox {
+    tr {
+        padding: 8px;
+        line-height: 1.42857143;
+        vertical-align: top;
+        border-top: 1px solid #ddd;
+        background-color: #f9f9f9 !important;
+
+        a {
+            color: #000 !important;
+        }
+
+        &.unread {
+            background-color: #fff !important;
+
+            a {
+                color: #1abc9c !important;
+            }
+        }
+    }
+}
+
+.inbox-pag {
+    display: none;
+    list-style: none;
+
+    li {
+        display: inline-block;
+    }
+}
+
+#view-mail-wrapper {
+    .panel-body {
+        background-color: #fff;
+    }
+
+    &:empty {
+        background-color: rgba(0, 0, 0, 0.00) !important;
+    }
+
+    header {
+        color: #b9b9b9;
+        border-bottom: 1px solid #ddd;
+
+        h2 {
+            padding: 0 0 15px 0;
+        }
+
+        h2, p {
+            display: inline-block;
+        }
+    }
+
+    .view-mail-header {
+        padding-top: 5px;
+
+        a {
+            text-decoration: none;
+            outline: none;
+            color: #1abc9c;
+            text-align: center;
+            padding: 5px;
+        }
+    }
+
+    .view-mail-body {
+        border-top: 1px solid #ddd;
+        padding-top: 15px;
+        margin-top: 15px;
+    }
+}
+
+.btn-default, a.btn-default:link, a.btn-default:visited, .Refresh {
+    color: #1abc9c;
+    background-color: #f9f9f9;
+
+
+    &:hover {
+        color: #17967d;
+    }
+}
+
+
+.label-costum {
+    background-color: #1abc9c;
+}

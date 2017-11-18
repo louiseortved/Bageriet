@@ -1,0 +1,98 @@
+﻿@model IEnumerable<Bageriet.Models.About>
+@{
+    ViewBag.Title = "AboutList";
+    Layout = "~/Views/Shared/_LayoutPageBackend.cshtml";
+}
+
+<div id="page-content">
+
+    <div class="content-header">
+
+        <ul class="breadcrumb breadcrumb-top">
+            <li>About Us</li>
+
+
+        </ul>
+        <ul class="nav-horizontal text-center">
+
+
+            <li>
+                <a href="/Admin/AboutList"><i class="icon-users"></i> About Us</a>
+            </li>
+            <li>
+                <a href="/Admin/CreateAbout"><i class="icon-pencil"></i> Add new Content</a>
+            </li>
+
+
+        </ul>
+    </div>
+
+    <div class="row text-center">
+        <div class="col-sm-6 col-lg-6">
+            <a href="/Admin/CreateAbout" class="widget widget-hover-effect2">
+                <div class="widget-extra themed-background">
+                    <h4 class="widget-content-light"><strong>Add New</strong> Content</h4>
+                </div>
+                <div class="widget-extra-full">
+                    <span class="h2 text-success animation-expandOpen"><i class="fa fa-plus"></i></span>
+                </div>
+            </a>
+        </div>
+
+
+        <div class="col-sm-6 col-lg-6">
+            <a href="javascript:void(0)" class="widget widget-hover-effect2">
+                <div class="widget-extra themed-background-dark">
+                    <h4 class="widget-content-light"><strong>All</strong> Contents</h4>
+                </div>
+                <div class="widget-extra-full">
+                    <span class="h2 themed-color-dark animation-expandOpen">@Model.Count()</span>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="block block-alt-noborder">
+        <h3 class="sub-header">
+            About Us
+        </h3>
+
+        <table class="table table-striped">
+            <thead>
+                <tr class="row-name">
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Adress</th>
+                    <th class="text-center float-right">Actions</th>
+
+                </tr>
+            </thead>
+            @foreach (var con in Model)
+            {
+                <tbody>
+                    <tr class="row-content" data-id="@con.Id">
+                        <td style="width: 300px">@con.CompanyName</td>
+                        <td style="width: 350px">@con.Content</td>
+                        <td>@con.Street @con.ZipCode, @con.City</td>
+                        <td>@con.Number</td>
+
+                        <td class="text-center">
+
+                            <a class="btn btn-default" href="@Url.Action("DetailsAbout", new {id = con.Id})" aria-label="Settings">
+                                <i class="icon-eye" aria-hidden="true"></i>
+                            </a>
+                            <a class="btn btn-default btn-md" href="/Admin/DeleteAbout/@con.Id" aria-label="Settings">
+                                <i class="icon-trash" aria-hidden="true"></i>
+                            </a>
+
+                            <a class="btn btn-default btn-md" href="@Url.Action("EditAbout", new {id = con.Id})" ar aria-label="Settings">
+                                <i class="icon-wrench" aria-hidden="true"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            }
+
+        </table>
+    </div>
+</div>
+

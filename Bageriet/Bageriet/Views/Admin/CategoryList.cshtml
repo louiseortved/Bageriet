@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Bageriet.Models.Category>
+
+@{
+    ViewBag.Title = "CategoryList";
+    Layout = "~/Views/Shared/_LayoutPageBackend.cshtml";
+}
+
+
+
+<div id="page-content">
+    <div class="content-header">
+        <ul class="breadcrumb breadcrumb-top">
+            <li>Categories</li>
+            <li>CategoryList</li>
+
+        </ul>
+        <ul class="nav-horizontal text-center">
+            <li>
+                <a href="/Admin/CategoryList"><i class="icon-bag"></i> Categories</a>
+            </li>
+            <li>
+                <a href="/Admin/CategoryCreate"><i class="icon-pencil"></i> Create Category</a>
+            </li>
+
+        </ul>
+    </div>
+
+    <div class="block block-alt-noborder" style="height: 270px;">
+        <a class="btn-top btn btn-default pull-right" style="margin-right: 15px;" href="/Admin/CategoryCreate"> <span class="icon-pencil"></span> Create New</a>
+
+        <table class="table table-striped">
+
+            <thead>
+                <tr class="row-name">
+                    <th>Title</th>
+                    <th class="text-right">Actions</th>
+                </tr>
+            </thead>
+
+            @foreach (var item in Model)
+            {
+
+
+                <tbody>
+
+
+                    <tr class="row-content">
+                        <td>@item.Title</td>
+                        <td style="text-align: right">
+                            <a class="btn btn-default" href="/Admin/CategoryDelete/@item.Id" aria-label="Settings">
+                                <span class="icon-trash" aria-hidden="true"></span>
+                                Delete
+                            </a>
+
+                            <a class="btn btn-default" href="@Url.Action("CategoryEdit", new {id = item.Id})" aria-label="Settings">
+                                <span class="icon-wrench" aria-hidden="true"></span>
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+
+
+                </tbody>
+
+            }
+        </table>
+
+    </div>
+</div>

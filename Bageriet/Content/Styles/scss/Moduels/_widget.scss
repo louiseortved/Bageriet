@@ -1,0 +1,224 @@
+﻿/*WIDGETS*/
+
+.widget {
+    background-color: #fff;
+    margin-bottom: 10px
+}
+
+.widget .widget-extra, .widget .widget-extra-full {
+    position: relative;
+    padding: 15px
+}
+
+.widget .widget-extra {
+    padding-top: 1px;
+    padding-bottom: 1px
+}
+
+.widget .widget-content-light {
+    color: #fff
+}
+
+.widget .widget-content-light small {
+    color: #eee
+}
+
+.widget .widget-icon, .widget .widget-image {
+    width: 64px;
+    height: 64px
+}
+
+.widget .widget-icon {
+    display: inline-block;
+    line-height: 64px;
+    text-align: center;
+    font-size: 28px;
+    color: #fff;
+    border-radius: 32px
+}
+
+.widget .widget-icon .fi, .widget .widget-icon .gi, .widget .widget-icon .hi, .widget .widget-icon .si {
+    margin-top: -3px
+}
+
+.widget .widget-options, .widget .widget-options-left {
+    position: absolute;
+    top: 5px;
+    opacity: .5
+}
+
+.widget .widget-options {
+    right: 5px
+}
+
+.widget .widget-options-left {
+    left: 5px
+}
+
+.widget .widget-options-left:hover, .widget .widget-options:hover {
+    opacity: 1
+}
+
+.widget-simple {
+    padding: 15px
+}
+
+.widget-simple:after, .widget-simple:before {
+    content: " ";
+    display: table
+}
+
+.widget-simple:after {
+    clear: both
+}
+
+.widget-simple .widget-icon, .widget-simple .widget-image {
+    margin: 0 15px
+}
+
+.widget-simple .widget-icon.pull-left, .widget-simple .widget-image.pull-left {
+    margin-left: 0
+}
+
+.widget-simple .widget-icon.pull-right, .widget-simple .widget-image.pull-right {
+    margin-right: 0
+}
+
+.widget-simple .widget-content {
+    font-size: 18px;
+    margin: 12px 0
+}
+
+.widget-simple .widget-content small {
+    display: block;
+    margin-top: 7px;
+    font-size: 13px;
+    font-weight: 400
+}
+
+.widget-advanced .widget-header {
+    position: relative;
+    padding: 15px 15px 50px;
+    height: 150px;
+    overflow: hidden
+}
+
+.widget-advanced .widget-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 150px
+}
+
+.widget-advanced .widget-background-map {
+    height: 180px;
+    width: 100%
+}
+
+.widget-advanced .widget-content-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    margin: 0;
+    background: rgba(0,0,0,.6)
+}
+
+.widget-advanced .widget-main {
+    position: relative;
+    padding: 50px 15px 15px
+}
+
+.widget-advanced .widget-image-container {
+    position: absolute;
+    display: inline-block;
+    padding: 5px;
+    width: 74px;
+    height: 74px;
+    top: -36px;
+    left: 50%;
+    margin-left: -36px;
+    border-radius: 36px;
+    background-color: #fff
+}
+
+.widget-advanced .widget-header .widget-image-container {
+    position: static;
+    left: auto;
+    top: auto;
+    margin: 0
+}
+
+.widget-advanced-alt .widget-header, .widget-advanced-alt .widget-main {
+    padding: 15px
+}
+
+.widget-advanced-alt .widget-header {
+    height: auto;
+    min-height: 150px
+}
+
+a.widget {
+    display: block;
+    -webkit-transition: all .2s ease-out;
+    transition: all .2s ease-out;
+    color: teal;
+}
+
+#login-alt-container, #to-top {
+    display: none
+}
+
+a.widget:active, a.widget:focus, a.widget:hover {
+    text-decoration: none;
+    color: teal;
+}
+
+a.widget.widget-hover-effect1:hover {
+    -webkit-transform: translateY(-3px);
+    transform: translateY(-3px);
+    -webkit-box-shadow: 0 5px 5px rgba(0,0,0,.1);
+    box-shadow: 0 5px 5px rgba(0,0,0,.1)
+}
+
+a.widget.widget-hover-effect1:active {
+    -webkit-transform: translateY(-1px);
+    transform: translateY(-1px);
+    -webkit-box-shadow: 0 2px 5px rgba(0,0,0,.1);
+    box-shadow: 0 2px 5px rgba(0,0,0,.1)
+}
+
+a.widget.widget-hover-effect2:hover {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    -webkit-box-shadow: inset 0 -5px 0 rgba(0,0,0,.2);
+    box-shadow: inset 0 -5px 0 rgba(0,0,0,.2)
+}
+
+a.widget.widget-hover-effect2:active {
+    -webkit-transform: translateY(2px);
+    transform: translateY(2px);
+    -webkit-box-shadow: none;
+    box-shadow: none
+}
+
+a.widget.widget-hover-effect3:hover {
+    -webkit-transform: rotate(2deg);
+    transform: rotate(2deg)
+}
+
+a.widget.widget-hover-effect3:active {
+    -webkit-transform: rotate(2deg) scale(.95);
+    transform: rotate(2deg) scale(.95)
+}
+
+a.widget.widget-hover-effect4:hover {
+    -webkit-transform: scale(.98);
+    transform: scale(.98)
+}
+
+a.widget.widget-hover-effect4:active {
+    -webkit-transform: rotate(-1deg) scale(.95);
+    transform: rotate(-1deg) scale(.95)
+}

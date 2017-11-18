@@ -1,0 +1,51 @@
+﻿@model Bageriet.Models.Ingredient
+@{
+    ViewBag.Title = "ingredientEdit";
+    Layout = "~/Views/Shared/_LayoutPageBackend.cshtml";
+}
+
+<div id="page-content">
+   
+    <ul class="breadcrumb breadcrumb-top">
+        <li>Ingredients</li>
+        <li>Edit ingredients</li>
+
+    </ul>
+
+    <ul class="nav-horizontal text-center">
+        <li>
+            <a href="/Admin/ingredientsList"><i class="icon-bag"></i> ingredients</a>
+        </li>
+        <li>
+            <a href="/Admin/ingredientsCreate"><i class="icon-pencil"></i> Create ingredients</a>
+        </li>
+        <li>
+            <a href="/Admin/ingredientsEdit"><i class="icon-wrench"></i> Edit ingredients</a>
+        </li>
+    </ul>
+    
+    
+
+    <div class="block block-alt-noborder">
+        <h3 class="sub-header">@Model.Name </h3>
+        <form role="form" action="/Admin/ingredientsEdit" id="sizeEdit" method="post">
+
+            <input type="hidden" name="Id" value="@Model.Id" />
+
+            <div class="form-group">
+                <label class="control-label" for="Name">Name</label>
+                <input type="text" value="@Model.Name" class="form-control" name="Name" placeholder="Edit Name">
+            </div>
+            
+
+            <div class="form-group">
+                <label class="control-label" for="Amount">Amount</label>
+                <input type="text" value="@Model.Amount" class="form-control" name="Amount" placeholder="Edit Amount">
+            </div>
+
+            <button type="submit" class="btn btn-default">Gem</button>
+            <a href="@Url.Action("DetailsProduct", "Admin", new {id = Model.ProductId})" type="reset" class="btn btn-default">Cancel</a>
+        </form>
+    </div>
+</div>
+

@@ -1,0 +1,123 @@
+﻿@model Bageriet.Models.News
+
+@{
+    ViewBag.Title = "NewsDetail";
+    Layout = "~/Views/Shared/_LayoutPageBackend.cshtml";
+}
+
+<div id="page-content">
+    <div class="content-header">
+        <ul class="breadcrumb breadcrumb-top">
+            <li>News</li>
+            <li>NewsList</li>
+            <li>NewsPost</li>
+        </ul>
+        <div class="content-header-media" style="margin-top: -20px;">
+            <div class="header-section" style="background: rgba(0, 0, 0, 0.69);">
+                <div class="row">
+                    <div class="col-md-10 col-lg-10 hidden-xs hidden-sm">
+                        <h1>News Detail</h1>
+                    </div>
+                </div>
+            </div>
+            <img src="/Content/Styles/Images/aaron-burden-64849.png" class="" alt="Alternate Text" />
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="row hidden-md hidden-lg"><h1 class="text-center">@Model.Title</h1></div>
+
+        <div class="col-md-4 col-md-push-1 col-xs-12">
+            <img class="img-responsive" src="~/Uploads/News/@Model.ImageUrl" />
+        </div>
+        <div class="col-md-8">
+            <h1 class="hidden-xs hidden-sm">@Model.Title</h1>
+
+            <hr style=" border-bottom: #ddd solid 1px;">
+            <span><i class="icon-calendar"></i></span> <small>@Model.DateCreated.ToString("D")</small><br />
+            <span><i class="icon-user"></i>
+                </span> <small>@Model.User.UserName</small>
+            <br />
+
+            @if (Model.Comments.Count == 0)
+            {
+                <small>
+                    No Comments
+                </small>
+            }
+            else
+            {
+                <small><i class="icon-bubble"></i> <a href="#" title="">@Model.Comments.Count Comments</a></small>
+
+            }
+
+
+
+
+            <hr style=" border-bottom: #ddd solid 1px;">
+        </div>
+
+
+
+    </div>
+    <div class="row">
+        <div class="col-md-10 col-md-push-1">
+            <p>@Model.Content</p>
+        </div>
+        <hr style=" border-bottom: #ddd solid 1px;">
+    </div>
+
+
+    <div class="row">
+
+        <div class="col-md-10 col-md-offset-1 site-block">
+            <h3 class="site-heading">
+                <strong>Comments</strong> 
+            </h3>
+            <ul class="media-list">
+                @foreach (var item in Model.Comments)
+                {
+
+
+                    <li class="media">
+                        <a href="javascript:void(0)" class="pull-left">
+                            <img src="/Content/Styles/Images/user-2-icon.png" alt="Avatar" class="img-circle">
+                        </a>
+                        <div class="media-body">
+                            <span class="text-muted pull-right"><small><em>@item.DateCreated.ToString("D")</em></small></span>
+                            <a style="color: #1abc9c;" href="javascript:void();"><strong>@item.User.UserName</strong></a>
+                            <p>@item.Content</p>
+                        </div>
+                    </li>
+                    <li>
+                        <p class="text-right">
+                            <a class="btn btn-default" style="color: #1abc9c;" href="/Admin/DeleteComment/@item.Id" aria-label="Settings">
+                                <i class="icon-trash" aria-hidden="true"></i>
+                                Delete
+                            </a>
+                        </p>
+                    </li>
+                }
+
+                <li class="media">
+                    <div class="media-body">
+                        @*@Html.Action("_CreateComment", "Admin")*@
+                        <div class="col-md-12">
+                            <h4>Leave a Comment:</h4>
+                            <form action="@Url.Action("_CreateComment", "Admin")" method="post">
+                                <input type="number" name="NewsId" value="@Model.Id" hidden=""/>
+                                @*<input type="number" name="BlogId" value="@Model.Id" hidden="" />*@
+                                <textarea id="Comment" name="Content" class="form-control" rows="4" placeholder="Enter you comment.."></textarea>
+                                <button type="submit" class="btn btn-default btn-md" style="color: #1abc9c;"><i class="icon-pencil"></i> Post</button>
+                            </form>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+  
+</div>
+
+

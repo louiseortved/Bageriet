@@ -1,0 +1,54 @@
+﻿@model Bageriet.Models.Brand
+@{
+    ViewBag.Title = "BrandEdit";
+    Layout = "~/Views/Shared/_LayoutPageBackend.cshtml";
+}
+
+<div id="page-content">
+    <div class="content-header">
+
+        <ul class="breadcrumb breadcrumb-top">
+            <li>Brand</li>
+            <li>BrandEdit</li>
+
+        </ul>
+
+        <ul class="nav-horizontal text-center">
+            <li>
+                <a href="/Admin/BrandList"><i class="icon-bag"></i> Brands</a>
+            </li>
+            <li>
+                <a href="/Admin/BrandCreate"><i class="icon-pencil"></i> Create Brand</a>
+            </li>
+            <li>
+                <a href="/Admin/BrandEdit"><i class="icon-wrench"></i> Edit Brand</a>
+            </li>
+        </ul>  
+    </div>
+   
+    <div class="block block-alt-noborder">
+        <h3 class="sub-header">@Model.Title</h3>
+        <form role="form" action="/Admin/BrandEdit" id="brandEdit" method="post">
+
+            <input type="hidden" name="Id" value="@Model.Id" />
+
+            <div class="form-group">
+                <label class="control-label" for="Title">Title</label>
+                <input type="text" value="@Model.Title" class="form-control" name="Title" placeholder="Edit Title" required="">
+            </div>
+            
+            
+            <div class="form-group">
+                <label class="control-label" for="image">Image</label>
+                <img class="img-responsive" style="height: 200px; width: auto" src="/Uploads/@Model.ImageUrl" />
+                <input id="image" type="file" name="file" class="form-control" placeholder="Upload new Image " required="" />
+            </div>
+
+            <button type="submit" class="btn btn-default">Save</button>
+            <a href="@Url.Action("BrandList")" type="reset" class="btn btn-default">Cancel</a>
+        </form>
+    </div>
+</div>
+
+
+

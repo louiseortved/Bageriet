@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Bageriet.Models.Product>
+
+@{
+    ViewBag.Title = "Produkter";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="page-content">
+    <div class="col-md-12 navBg"></div>
+
+    <div class="row newsContent" style="margin: 0;">
+        <div class="col-md-12 text-center newsContent">
+            <div class="col-md-12">
+                <h1>Vores elskede bagværk</h1>
+                <div class="col-md-6 col-md-push-3">
+                    <h5 class="text-center">Der er mange tilgængelige udgaver af Lorem Ipsum, men de fleste udgaver har gennemgået forandringer, når nogen har tilføjet humor eller tilfældige ord, som på ingen måde ser ægte ud</h5>
+                </div>
+            </div>
+            <div class="col-md-2 col-md-push-2">
+                @Html.Action("CategoryList", "Home")
+            </div>
+            
+            
+         
+            <div class="col-md-6 col-md-push-2 newsImg">
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-4 newsBox ">
+                        <div class="col-md-12">
+                            <img class="img-responsive" src="~/Uploads/Products/@item.ImageUrl"/>
+                        </div>
+                        <div class="col-md-12">
+                            <p>@item.Comments.Count()<span class="icon-bubbles"></span>
+                            </p>
+                        </div>
+                        <div class="col-md-12">
+                            <p>@item.Title</p>
+                        </div>
+                        <div class="col-md-12">
+                            <p>
+                                @(item.Description.Length > 55 ? item.Description.Substring(0, 55) : item.Description)
+                        
+                            </p>
+                        </div>
+                        <div class="col-md-12">
+                            <a href="/Home/ProductDetail/@item.Id" class="btn btn-default prod-btn">SE MERE</a>
+                        </div>
+                    </div>
+                }
+               
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>

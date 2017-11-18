@@ -1,0 +1,262 @@
+﻿@using Microsoft.AspNet.Identity
+@model Bageriet.Models.Product
+
+
+@{
+    ViewBag.Title = "ProductDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div id="page-content">
+    <div class="col-md-12 navBg"></div>
+
+    <div class="row" style="margin: 0;">
+        <div class="col-md-9 col-md-push-2 col-sm-6 col-sm-push-2 col-xs-10">
+            <ul class="breadcrumb breadcrumb-top">
+                <li>@Model.Category.Title</li>
+                <li>@Model.Title</li>
+            </ul>
+        </div>
+
+        <div class="col-md-12 col-sm-12 col-xs-12"></div>
+        <div class="col-md-5 col-md-push-2 col-sm-5 col-sm-push-2 col-xs-12">
+            <h1>@Model.Category.Title</h1>
+            <h3>@Model.Title</h3>
+        </div>
+        <div class="col-md-3 col-md-push-4 col-sm-4 col-sm-push-4 hidden-xs">
+            @{
+                if (User.Identity.IsAuthenticated)
+                {
+                    <div class="col-xs-2 float-right">
+                        @{
+                            if (Model.Likes.Any(x => x.UserId == User.Identity.GetUserId()))
+                            {
+                                <button class="like btn btn-default">Like! <i class="icon-heart"></i></button>
+                            }
+                            else
+                            {
+                                <button class="like btn btn-default">Like! <i class="icon-check"></i></button>
+                            }
+                        }
+                        <form action="@Url.Action("AddLike", "Home")" class="like" method="post" hidden>
+                            <input type="number" name="ProductId" value="@Model.Id" />
+                            <button  type="submit"></button>
+                        </form>
+                    </div>
+                }
+                else
+                {
+                    <div class="col-xs-4">
+                        <span>Log in for at Like</span>
+                    </div>
+                }
+            }
+        </div>
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="col-md-5 col-md-push-2 col-sm-5 col-xs-12">
+                <div>
+                    <img class="img-responsive img-float" src="~/Uploads/Products/@Model.ImageUrl" alt="@Model.Title" />
+                </div>
+                <h5>@Model.Description</h5>
+
+
+            </div>
+            <div class="col-md-4 col-md-push-2 col-sm-4 col-sm-push-2 col-xs-12">
+                <div class="col-md-6 col-md-push-4 text-center">
+                    <h3 class="IngText">Ingredienser</h3>
+                </div>
+                <div class="col-md-10 col-md-push-2 text-center">
+                    @foreach (var item in Model.Ingredients)
+                    {
+                        <div class="col-md-12 ingBox">
+                            <h5>@item.Amount @item.Name</h5>
+                        </div>
+                    }
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin: 0; margin-right: 0px;">
+        <div class="col-md-9 col-md-push-2 commentBox">
+            <div class="col-md-2">
+                <h5>Kommentar</h5>
+            </div>
+            <div class="col-md-1 col-md-push-9 icon-comments">
+                @if (Model.Comments.Count == 0)
+                {
+                 
+                        <small>
+                            Ingen kommentarer
+                        </small>
+                 
+                }
+                else
+                {
+                    <small><i class="icon-bubble"></i> <a href="#" title="">@Model.Comments.Count Kommentar</a></small>
+
+                }
+
+
+            </div>
+
+        </div>
+
+        @if (User.Identity.IsAuthenticated)
+        {
+
+            <form action="@Url.Action("_CreateComment", "Home")" method="post" class="comments">
+                <input type="number" name="ProductId" value="@Model.Id" hidden="" />
+                <div class="col-md-9 col-md-push-2 col-sm-9 col-sm-push-2 col-xs-12 commentBox_2">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="icon-pencil"></i></span>
+
+                        <textarea rows="0" id="Comment" name="Content" class="form-control" style="resize: none" placeholder="fortæl os hvad du synes.."></textarea>
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="input-group-btn comment">
+                        <button type="submit" class="btn btn-default btn-comment ">Tilmeld</button>
+                    </div>
+                </div>
+
+
+            </form>
+
+        }
+        else
+        {
+            <div class="col-md-9 col-md-push-2 col-sm-9 col-sm-push-2 col-xs-12 commentUserBox">
+                <h5 class="text-muted text-center commmentLogin">Du skal logge ind for at kommenterer på opskriften</h5>
+            </div>
+
+        }
+
+
+    </div>
+
+    <div class="comments">
+        <div class="row" style="margin: 0;">@Html.Action("_GetComments", "Home")</div>
+        <div class="row" style="margin: 0;">
+
+
+
+            <div class="col-md-9 col-md-push-2">
+                <div class="col-xs-12">
+                    <nav aria-label="Page navigation example">
+                        @{
+                            var Pages = (Model.Comments.Count() / 3);
+                            if (Pages != 0)
+                            {
+                                <ul class="pagination">
+                                    <li class="page-item">
+
+
+                                        <span class="prev"><</span>
+                                    </li>
+                                    @for (int i = 0; i <= Pages; i++)
+                                    {
+                                        if (i == 0)
+                                        {
+                                            <li class="page-item"><span class="active" data-page="@i">@(i + 1)</span></li>
+
+
+                                        }
+                                        else
+                                        {
+                                            <li class="page-item"><span data-page="@i">@(i + 1)</span></li>
+
+
+                                        }
+                                    }
+                                    <li class="page-item">
+                                        <span class="next">></span>
+                                    </li>
+                                </ul>
+                            }
+
+                        }
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+@section scripts
+
+        {
+
+    <script>
+        $(".comments span").on("click", function myfunction() {
+            var _ = $(this);
+            if (_.hasClass("prev")) {
+                if (parseInt($(".comments span[data-page].active").data("page")) !== 0) {
+                    $(".comments span[data-page].active").prev("span[data-page]").addClass("active");
+                    $(".comments span[data-page].active:last").removeClass("active");
+                    $(".comments div.row:first").load("@Url.Action("_GetComments", "Home", new { id = Model.Id })?page=" +
+                        $(".comments span[data-page].active").data("page"));
+                }
+            } else if (_.hasClass("next")) {
+                if (parseInt($(".comments span[data-page].active").data("page")) !== Pages) {
+                    $(".comments span[data-page].active").next("span[data-page]").addClass("active");
+                    $(".comments span[data-page].active:first").removeClass("active");
+                    $(".comments div.row:first").load("@Url.Action("_GetComments", "Home", new { id = Model.Id })?page=" + $(".comments span[data-page].active").data("page"));
+
+                }
+            }
+            else {
+                $(".comments span[data-page].active").removeClass("active");
+                _.addClass("active");
+                $(".comments div.row:first").load("@Url.Action("_GetComments", "Home", new { id = Model.Id })?page=" + _.data("page"));
+            }
+        });
+        $(document).on("submit", ".comments form", function () {
+            $.ajax({
+                type: $(this).attr("method"),
+                url: $(this).attr("action"),
+                data: $(this).serialize(),
+                dataType: "json",
+                error: function () {
+                    $(".comments div.row:first").load("@Url.Action("_GetComments", "Home", new { id = Model.Id })?page=" + $(".comments span[data-page].active").data("page"));
+                },
+                success: function () {
+                }
+            });
+            event.preventDefault();
+        });
+        $(".like").on("mousedown", function () {
+            if ($(this).children("i").hasClass("icon-heart")) {
+                $(this).children("i").removeClass("icon-heart").addClass("icon-check");
+            }
+            else {
+                $(this).children("i").removeClass("icon-check").addClass("icon-heart");
+            }
+            $("form.like button[type='submit']").trigger("click");
+        });
+        $(document).on("submit",
+            "form.like",
+            function() {
+                $.ajax({
+                    type: $(this).attr("method"),
+                    url: $(this).attr("action"),
+                    data: $(this).serialize(),
+                    dataType: "json",
+                    error: function() {
+                    },
+                    success: function() {
+                    }
+                });
+                event.preventDefault();
+            });
+    </script>
+}

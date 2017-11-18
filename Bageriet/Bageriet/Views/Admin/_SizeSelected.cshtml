@@ -1,0 +1,46 @@
+﻿@model Bageriet.ViewModels.ProductVM
+
+<label class="col-md-3 control-label">Size</label>
+
+@{
+    var sizeids = "";
+}
+
+@foreach (var sizes in Model.Sizes)
+{
+    if (Model.SizeProduct.Any(x => x.SizeId == sizes.Id))
+    {
+        <span class="sizes toggled" data-id="@sizes.Id">
+            @sizes.Title
+        </span>
+    }
+    else
+    {
+        <span class="sizes" data-id="@sizes.Id">
+            @sizes.Title
+        </span>
+    }
+}
+
+@foreach (var item in Model.SizeProduct)
+{
+    if (Model.SizeProduct.FirstOrDefault() == item)
+    {
+        sizeids = item.SizeId + ",";
+    }
+    else if (Model.SizeProduct.LastOrDefault() == item)
+    {
+        sizeids = sizeids + item.SizeId;
+    }
+    else
+    {
+        sizeids = sizeids + item.SizeId + ",";
+    }
+
+
+   
+}
+
+@*<input name="SizeId" hidden="" />
+
+<input type="text" name="SizeId" value="@sizeids" />*@

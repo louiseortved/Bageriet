@@ -1,0 +1,199 @@
+﻿@model Bageriet.ViewModels.ProductVM
+
+
+@{
+    ViewBag.Title = "ProductCreate";
+    Layout = "~/Views/Shared/_LayoutPageBackend.cshtml";
+}
+
+<div id="page-content">
+    <div class="content-header">
+
+        <ul class="breadcrumb breadcrumb-top">
+            <li>Products</li>
+            <li>Add new Product</li>
+
+        </ul>
+        <ul class="nav-horizontal text-center">
+
+
+            <li>
+                <a href="/Admin/ProductList"><i class="icon-bag"></i> Products</a>
+            </li>
+            <li>
+                <a href="/Admin/ProductCreate"><i class="icon-pencil"></i> Create Product</a>
+            </li>
+
+
+        </ul>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="block">
+                <div class="block-title">
+                    <h2><i class="fa fa-pencil"></i><strong>General</strong> Data</h2>
+                </div>
+
+                <form role="form" action="/Admin/ProductCreate" id="productCreate" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered" data-toggle="validator">
+
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="CategoryId">Category</label>
+                        <div class="col-md-8">
+                            <select id="CategoryId" class="form-control select-chosen" name="CategoryId" required>
+                                <option hidden value="0">Choose Category</option>
+                                @foreach (var cat in Model.Categories)
+                                {
+                                    <option data-SubId="@cat.Id" value="@cat.Id">@cat.Title</option>
+                                }
+
+                            </select>
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="Titel">Title</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" name="Title" placeholder="Write a title" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="Description">Description</label>
+                        <div class="col-md-8">
+                            <textarea type="text" class="form-control" name="Description" placeholder="Description" required></textarea>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="image">Image</label>
+                        <div class="col-md-8">
+                            <input id="image" type="file" name="file" class="form-control" placeholder="Upload Image" required />
+                        </div>
+                    </div>
+
+
+
+                  
+
+
+                    <div class="form-group form-actions">
+                        <div class="col-md-9 col-md-offset-3">
+                            <button type="submit" class="btn btn-md btn-default"><i class="fa fa-floppy-o"></i> Save</button>
+                            <a href="@Url.Action("ProductList")" type="reset" class="btn btn-md btn-default"><i class="fa fa-repeat"></i> Cancel</a>
+
+
+                        </div>
+                    </div>
+
+
+                </form>
+
+
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+
+
+@section Styles{
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css" rel="stylesheet" />
+
+}
+
+
+@section scripts{
+
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/Main.js"></script>
+
+
+    <script>
+        var value = [];
+
+
+        $("select[name='ParentId']").on("change",
+            function () {
+                var $this = $(this);
+                value = [];
+                console.log($this.find(":selected").val());
+                $(".subCategories").load("/Admin/_GetSubCategories/" + $this.find(":selected").val());
+            }
+
+        );
+
+
+        $(document).on("click",
+            ".subCategories[data-id]",
+            function () {
+                var $this = $(this);
+                var value = $(this).data("id");
+                console.log($this);
+                if ($this.hasClass("toggled")) {
+                    $this.removeClass("toggled");
+                    vals = jQuery.grep(vals,
+                        function (v) {
+                            return v != value;
+                        });
+                    $('select[name="CategoryId"]').val(vals);
+
+                }
+
+
+                else {
+                    $this.addClass("toggled");
+                    vals.push(value);
+                    $('select[name="CategoryId"]').val(vals);
+                }
+            });
+
+    </script>
+
+
+
+    <script>
+        var vals = [];
+
+        $(document).on("change", "select[name='CategoryId']",
+            function () {
+                var $this = $(this);
+                vals = [];
+                console.log($this.find(":selected").val());
+                $(".ingredienses").load("/Admin/_IngrediensDropdown/" + $this.find(":selected").val());
+
+            });
+
+        $(document).on("click",
+            ".size[data-id]",
+            function () {
+                var $this = $(this);
+                var value = $(this).data("id");
+                console.log($this);
+                if ($this.hasClass("toggled")) {
+                    $this.removeClass("toggled");
+                    vals = jQuery.grep(vals,
+                        function (v) {
+                            return v != value;
+                        });
+                    $('input[name="IngrediensId"]').val(vals);
+
+                }
+
+
+                else {
+                    $this.addClass("toggled");
+                    vals.push(value);
+                    $('input[name="IngrediensId"]').val(vals);
+                }
+            });
+
+
+    </script>
+}

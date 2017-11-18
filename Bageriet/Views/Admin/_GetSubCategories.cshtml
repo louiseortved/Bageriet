@@ -1,0 +1,14 @@
+﻿ @model IEnumerable<Bageriet.Models.Category>
+
+<label class="col-md-3 control-label">Category</label>
+
+<div class="col-md-8">
+    <select id="CategoryId" class="form-control select-chosen" name="CategoryId" required>
+        <option hidden value="0">Choose Category</option>
+        @foreach (var cat in Model)
+        {
+            <option data-SubId="@cat.Id" value="@cat.Id">@cat.Title</option>
+        }
+
+        </select>
+    </div>

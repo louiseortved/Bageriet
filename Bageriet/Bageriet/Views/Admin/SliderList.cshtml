@@ -1,0 +1,101 @@
+﻿@model IEnumerable<Bageriet.Models.Slider>
+@{
+    ViewBag.Title = "Slider";
+    Layout = "~/Views/Shared/_LayoutPageBackend.cshtml";
+}
+
+
+<div id="page-content">
+    <div class="content-header">
+        <ul class="breadcrumb breadcrumb-top">
+            <li>SliderList</li>
+
+        </ul>
+
+        <div class="content-header-media" style="margin-top: -20px;">
+            <div class="header-section" style="background: rgba(0, 0, 0, 0.69);">
+                <div class="row">
+                    <div class="col-md-4 col-lg-6 hidden-xs hidden-sm">
+                        <h1>Blog</h1>
+                    </div>
+                </div>
+            </div>
+            <img src="/Content/Styles/Images/jamie-street-96982.png" class="" alt="Alternate Text" />
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-sm-6 col-lg-6">
+            <a href="/Admin/SliderCreate" class="widget widget-hover-effect2">
+                <div class="widget-extra themed-background">
+                    <h4 class="widget-content-light"><strong>Add New</strong> image to Slider</h4>
+                </div>
+                <div class="widget-extra-full"><span class="h2 text-success animation-expandOpen"><i class="fa fa-plus"></i></span></div>
+            </a>
+        </div>
+
+
+        <div class="col-sm-6 col-lg-6">
+            <a href="javascript:void(0)" class="widget widget-hover-effect2">
+                <div class="widget-extra themed-background-dark">
+                    <h4 class="widget-content-light"><strong>All</strong> Images</h4>
+                </div>
+                <div class="widget-extra-full"><span class="h2 themed-color-dark animation-expandOpen">@Model.Count()</span></div>
+            </a>
+        </div>
+    </div>
+
+    <div class="block block-alt-noborder">
+        <h3 class="sub-header">
+            Sliders 
+        </h3>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr class="row-name">
+                        <th>Image</th>
+
+                        <th class="text-center">Actions</th>
+
+                    </tr>
+                </thead>
+                @foreach (var slider in Model)
+                {
+
+                    <tbody>
+                        <tr class="row-content" data-id="@slider.Id">
+
+                            <td>
+                                @if (slider.ImageUrl.Length > 0)
+                                {
+
+
+                                    <img class="img-responsive" style="height: 100px; width: auto" src="~/Uploads/slider/@slider.ImageUrl" />
+
+                                }
+                                else
+                                {
+                                    <img class="img-responsive" style="height: 75px; width: auto" src="~/Content/styles/Images/noImage.png" />
+
+                                }
+
+                            </td>
+
+
+
+                            <td class="text-center">
+                                <a class="btn btn-default btn-md" href="/Admin/DeleteSlider/@slider.Id" aria-label="Settings">
+                                    <i class="icon-trash" aria-hidden="true"></i>
+                                </a>
+
+                                <a class="btn btn-default btn-md" href="@Url.Action("EditSlider", new {id = slider.Id})" ar aria-label="Settings">
+                                    <i class="icon-wrench" aria-hidden="true"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                }
+
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+﻿@model Bageriet.ViewModels.MailVM
+    
+<div class="panel">
+    <aside class="panel-body">
+        @*<a href="mail-compose.html" class="btn btn-primary btn-block">Compose Mail</a>*@
+        <ul class="nav nav-pills nav-stacked compose-nav">
+            <li class="active">
+                <a href="javascript:void(0)" data-target="Inbox">
+                    <i class="icon-drawer"></i> Inbox
+                    <span class="label label-costum pull-right inbox-notification">@Model.InboxCount</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" data-target="Trash">
+                    <i class="fa fa-trash-o"></i> Trash
+                    <span class="label label-info pull-right inbox-notification">@Model.TrashCount</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+</div>
+

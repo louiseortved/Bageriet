@@ -1,0 +1,108 @@
+﻿@model Bageriet.Models.ApplicationUser
+@{
+    ViewBag.Title = "DetailsUser";
+    Layout = "~/Views/Shared/_LayoutPageBackend.cshtml";
+}
+
+<div id="page-content">
+    <div class="content-header">
+        <ul class="breadcrumb breadcrumb-top">
+            <li>User</li>
+            <li>UserList</li>
+            <li>UserDetail</li>
+        </ul>
+        <div class="content-header-media" style="margin-top: -20px;">
+            <div class="header-section" style="background: rgba(0, 0, 0, 0.69);">
+                <div class="row">
+                    <div class="col-md-4 col-lg-6 hidden-xs hidden-sm">
+                        <h1>Profile</h1>
+                    </div>
+                </div>
+            </div>
+
+            <img src="/Content/Styles/Images/redd-angelo-70553.png" alt="Alternate Text" />
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="Userpanel">
+                <div class="Usercontent">
+                    <div class="profile_img">
+                        <div id="crop-avatar">
+                            <!-- Current avatar -->
+                            @{
+                                if (Model.ImageUrl == null)
+                                {
+                                    <img class="img-responsive avatar-view" src="~/Content/Styles/Images/avatar-admin-copy_medium.png" alt="Avatar" style="margin-left: 50px;">
+                                   
+                                }
+                                else
+                                {
+
+                                    <img class="img-responsive" src="/Uploads/Users/@Model.ImageUrl" alt="Avatar" style="width: 100%;">
+
+                                   
+                                }
+                            }
+                        </div>
+                    </div>
+                    <p class="Username">@Model.FirstName @Model.LastName</p>
+                    <p class="Userpos">@Model.Email</p>
+
+
+                    <div class="text-center">
+                        <a class="btn btn-default"><i class="icon-plus"></i> Follow</a>
+                        <a class="btn btn-default"><i class="icon-envelope"></i> Message</a>
+                    </div>
+                    <hr>
+                    <div>
+                        <h5 class="text-bold">About</h5>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                    </div>
+                    <hr>
+                    <ul class="list-unstyled">
+                        <li>
+                            <i class="icon-pin"></i> @Model.Adress, @Model.Country
+                        </li>
+
+                        <li>
+                            <i class="icon-briefcase"></i> @Model.Profession
+                        </li>
+
+                        <li class="m-top-xs">
+                            <i class="icon-globe"></i>
+                            <a class="text-primary" href="http://www.google.dk" target="_blank">www.google.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 col-sm-8 col-xs-12">
+            <div class="Userpanel">
+                <div class="Usercontent">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#tab_1" data-toggle="tab" aria-expanded="true"> Overview </a>
+                        </li>
+                        <li>
+                            <a href="#tab_2" data-toggle="tab" aria-expanded="true"> Account Settings </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        @*<div class="tab-pane" id="tab_1">
+                            @Html.Action("_BlogList", "Account", new { Id = Model.Id })
+                        </div>*@
+                        <div class="tab-pane" id="tab_2">
+                            @Html.Action("_EditUser", "Account", new { Id = Model.Id })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Microsoft.AspNet.Identity.EntityFramework.IdentityRole>
+@{
+    ViewBag.Title = "Rolelist";
+    Layout = "~/Views/Shared/_LayoutPageBackend.cshtml";
+}
+
+
+<div id="page-content">
+    <div class="content-header">
+        <ul class="breadcrumb breadcrumb-top">
+            <li>Roller</li>
+            <li>Liste af Roller</li>
+
+        </ul>
+        <div class="content-header-media" style="margin-top: -20px;">
+            <div class="header-section" style="background: rgba(0, 0, 0, 0.69);">
+                <div class="row">
+                    <div class="col-md-4 col-lg-6 hidden-xs hidden-sm">
+                        <h1>About</h1>
+                    </div>
+                </div>
+            </div>
+
+            <img src="/Content/Styles/Images/ian-schneider-66374.png" alt="Alternate Text" />
+        </div>
+
+
+    </div>
+    <div class="row text-center">
+        <div class="col-sm-6 col-lg-6">
+            <a href="/Account/CreateRole" class="widget widget-hover-effect2">
+                <div class="widget-extra themed-background">
+                    <h4 class="widget-content-light"><strong>Add a New</strong> Role</h4>
+                </div>
+                <div class="widget-extra-full">
+                    <span class="h2 text-success animation-expandOpen"><i class="fa fa-plus"></i></span>
+                </div>
+            </a>
+        </div>
+
+
+        <div class="col-sm-6 col-lg-6">
+            <a href="javascript:void(0)" class="widget widget-hover-effect2">
+                <div class="widget-extra themed-background-dark">
+                    <h4 class="widget-content-light"><strong>All</strong> Roles</h4>
+                </div>
+                <div class="widget-extra-full">
+                    <span class="h2 themed-color-dark animation-expandOpen">@Model.Count()</span>
+                </div>
+            </a>
+        </div>
+    </div>
+
+
+    <div class="block block-alt-noborder">
+      
+        <div class="table-responsive">
+            <table class="table table-striped">
+
+                <thead>
+                    <tr>
+                        <th class="text-center">Rolename</th>
+                        <th class="text-center">Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var role in Model)
+                    {
+                        <tr>
+                            <td class="text-center">@role.Name</td>
+                            <td class="text-center">
+                                <button type="submit" class="btn btn-md btn-default"><i class="icon-wrench"></i> Edit</button>
+                                <span onclick="return confirm('Are you sure you want to delete this role?')">
+                                    <a href="@Url.Action("DeleteRole", new {id = role.Id})" type="reset" class="btn btn-md btn-default"><i class="icon-trash"></i>Delete</a>
+                                </span>
+
+
+
+                            </td>
+                        </tr>
+                    }
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

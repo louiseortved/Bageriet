@@ -1,0 +1,90 @@
+﻿@model IEnumerable<Bageriet.Models.ApplicationUser>
+
+@{
+    ViewBag.Title = "UserList";
+    Layout = "~/Views/Shared/_LayoutPageBackend.cshtml";
+}
+
+
+
+
+<div id="page-content">
+    <div class="content-header">
+        <ul class="breadcrumb breadcrumb-top">
+            <li>UserList</li>
+
+        </ul>
+        <div class="content-header-media" style="margin-top: -20px;">
+            <div class="header-section" style="background: rgba(0, 0, 0, 0.69);">
+                <div class="row">
+                    <div class="col-md-10 col-lg-10 hidden-xs hidden-sm">
+                        <h1>Users</h1>
+                    </div>
+                </div>
+            </div>
+            <img src="/Content/Styles/Images/jose-martin-ramirez-c-651.png" class="" alt="Alternate Text" />
+        </div>
+    </div>
+
+
+    <div class="block">
+     
+
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th style="width: 150px;" class="text-center"><i class="icon-users"></i></th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th style="width: 150px;" class="text-center">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @{
+
+                                    if (item.ImageUrl != null)
+                                    {
+                                        <img class="avatar-view img-responsive" src="/Uploads/Users/@item.ImageUrl" alt="Avatar">
+                                    }
+                                    else
+                                    {
+                                        <img class="img-responsive avatar-view" src="/Content/Styles/Images/user-2-icon.png" alt="Avatar">
+                                    }
+
+                                }
+                            </td>
+                            <td><a href="/Account/DetailsUser/@item.Id">@item.FirstName @item.LastName</a></td>
+                            <td>@item.Email</td>
+
+                      
+                            <td class="text-center">
+
+                                <a class="btn btn-default" href="@Url.Action("DetailsUser", new {id = item.Id})" aria-label="Settings">
+                                    <i class="icon-eye" aria-hidden="true"></i>
+                                </a>
+                                <a class="btn btn-default" href="@Url.Action("DeleteUser", new {id = item.Id})" aria-label="Settings">
+                                    <i class="icon-trash" aria-hidden="true"></i>
+                                </a>
+
+                                <a class="btn btn-default" data-toggle="Edit" href="@Url.Action("_EditUser", new {id = item.Id})" aria-label="Settings">
+                                    <i class="icon-wrench" aria-hidden="true"></i>
+                                </a>
+                            </td>
+                        </tr>
+                                    }
+           
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+
+</div>

@@ -1,0 +1,42 @@
+﻿@model Bageriet.Models.Mail
+
+@{
+    if (Model != null)
+    {
+        <div class="panel-body">
+            <header>
+                <h2>@Model.Title</h2>
+                <p class="pull-right">@Model.DateCreated.ToString("M")</p>
+            </header>
+            <div class="row view-mail-header">
+                <div class="col-md-8 ">
+                    <strong><a href="#">@Model.Name</a></strong> to <a href="#">Me</a>
+                </div>
+                <div class="col-md-4">
+                    <div class="view-mail-reply pull-right">
+                        <button class="btn btn-default btn-sm trash" data-Id="@Model.Id">
+                            <i class="fa fa-trash-o"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+
+                    <div class="panel view-mail-body">
+                        <div class="panel-body">
+                            <p>
+                                @Model.Content
+                            </p>
+                            <p>
+                                Regards,
+                                <br>@Model.Name
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}

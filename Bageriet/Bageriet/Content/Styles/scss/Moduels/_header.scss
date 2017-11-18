@@ -1,0 +1,297 @@
+﻿/* Header */
+#header {
+    z-index: 200;
+    background: #fff;
+    min-height: 80px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    margin-right: 0;
+}
+
+#header .brand {
+    float: left;
+    width: 240px;
+    min-height: 80px;
+    padding: 0 0 0 10px;
+    position: relative;
+    background: #1abc9c url('../Images/user_admin.png') no-repeat -23px 1px;
+}
+
+#header .logo {
+    color: #fff;
+    font-size: 1.7em;
+    text-transform: uppercase;
+    padding: 23px 0 0 57px;
+    display: inline-block;
+}
+
+#header .logo span {
+    font-weight: 700;
+}
+
+#header .toggle-navigation button:hover,
+#header .toggle-navigation button:active,
+#header button#toggle-mail:hover,
+#header button#toggle-mail:active {
+    background: #1abc9c;
+}
+
+#header .toggle-navigation button:hover i,
+#header button#toggle-mail:hover i {
+    color: #F6F6F6;
+}
+
+#header .toggle-navigation.toggle-left {
+    margin: 23px 0 0 20px;
+    display: inline-block;
+}
+
+#header .btn-default {
+    padding: 3px 9px;
+    background: #F6F6F6;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+}
+
+#header .btn-default .fa {
+    cursor: pointer;
+    color: #797979;
+}
+
+#header .user-nav {
+    float: right;
+    padding-top: 23px;
+    padding-right: 28px;
+}
+
+#header .user-nav ul li {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 15px;
+}
+
+#header .user-nav ul li .profile-photo {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+#header .user-nav ul li.dropdown.messages .dropdown-menu {
+    width: 350px;
+}
+
+#header .user-nav ul li.dropdown.settings .dropdown-menu {
+    width: 125px;
+}
+
+#header .dropdown.settings .dropdown-menu > li > a:hover,
+#header .dropdown.settings .dropdown-menu > li > a:active {
+    background-color: #16a086;
+    color: #fff;
+}
+
+#header .dropdown.settings .dropdown-menu > li > a:hover .badge.badge-danager {
+    background-color: #fff;
+    color: #1abc9c;
+}
+
+#header .user-nav ul li.dropdown.messages .dropdown-menu > li > a:hover,
+#header .user-nav ul li.dropdown.messages .dropdown-menu > li > a:hover .message-info .time {
+    background: #1abc9c;
+    color: #fff;
+}
+
+#header .user-nav ul li.dropdown.messages .dropdown-menu {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    left: -150px;
+    top: 48px;
+    background-color: #F6F6F6;
+    border: none;
+    -webkit-box-shadow: 0 0px 5px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 0px 5px rgba(0, 0, 0, 0.1);
+    -o-box-shadow: 0 0px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0px 5px rgba(0, 0, 0, 0.1);
+    padding: 0;
+}
+
+#header .user-nav ul li.dropdown.messages .dropdown-menu:before {
+    bottom: 100%;
+    left: 48%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(238, 238, 238, 0);
+    border-bottom-color: #e84c3d;
+    border-width: 8px;
+    margin-left: -8px;
+}
+
+#header .messages {
+    margin: 0 15px;
+}
+
+#header .messages .badge {
+    position: absolute;
+    top: -10px;
+    left: -5px;
+}
+
+#header .options i {
+    color: #797979;
+    font-size: 1.1em;
+}
+
+#header .user-nav ul li.dropdown.settings {
+    line-height: 39px;
+    margin-right: 10px;
+    padding: 0 10px 0 10px;
+}
+
+#header .user-nav ul li.dropdown.settings .dropdown-menu > li > a {
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+#header .user-controls ul li.dropdown.settings .dropdown-menu > li {
+    display: block;
+}
+
+#header .user-nav ul li.dropdown.settings .dropdown-menu {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    left: -10px;
+    top: 54px;
+    background-color: #F6F6F6;
+    border-color: #e7e8ec;
+    -webkit-box-shadow: 0 0px 5px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 0px 5px rgba(0, 0, 0, 0.1);
+    -o-box-shadow: 0 0px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+#header .user-nav ul li.dropdown.settings .dropdown-menu:after {
+    bottom: 100%;
+    left: 78%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(238, 238, 238, 0);
+    border-bottom-color: #F6F6F6;
+    border-width: 8px;
+    margin-left: -8px;
+}
+
+#header .user-nav ul li.dropdown.settings .dropdown-menu:before {
+    bottom: 100%;
+    left: 78%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(238, 238, 238, 0);
+    border-bottom-color: #e7e8ec;
+    border-width: 8px;
+    margin-left: -8px;
+    top: -17px;
+}
+
+#header .dropdown.settings .dropdown-menu > li,
+#header .dropdown.messages .dropdown-menu > li {
+    display: block;
+}
+
+#header .dropdown.settings > a {
+    font-weight: 600;
+    font-size: 12px;
+    color: #1abc9c;
+}
+
+#header li.dropdown ul.dropdown-menu.alert > li h1 {
+    -webkit-border-radius: 3px 3px 0 0;
+    -moz-border-radius: 3px 3px 0 0;
+    -ms-border-radius: 3px 3px 0 0;
+    -o-border-radius: 3px 3px 0 0;
+    border-radius: 3px 3px 0 0;
+    background-color: #e84c3d;
+    margin: 0;
+    font-size: 13px;
+    padding: 10px;
+    font-weight: 400;
+    color: white;
+}
+
+#header .user-nav ul li.dropdown.messages .dropdown-menu > li:last-child a {
+    background-color: white;
+    font-weight: 400;
+    font-size: 12px;
+    margin: 0;
+    -webkit-border-radius: 0 0 3px 3px;
+    -moz-border-radius: 0 0 3px 3px;
+    -ms-border-radius: 0 0 3px 3px;
+    -o-border-radius: 0 0 3px 3px;
+    border-radius: 0 0 3px 3px;
+    text-align: right;
+    padding: 10px 15px;
+}
+
+#header .user-nav ul li.dropdown.messages .dropdown-menu > li:last-child a:hover {
+    background: #1abc9c;
+    color: #fff;
+}
+
+#header .user-nav ul li.dropdown.messages .dropdown-menu > li > a {
+    margin: 10px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    background-color: #fcfcfc;
+    color: #797979;
+}
+
+#header .user-nav ul li.dropdown.messages .dropdown-menu > li > a .message-info {
+    vertical-align: top;
+    display: inline-block;
+    font-size: 11px;
+    margin-left: 5px;
+    width: 225px;
+}
+
+#header .user-nav ul li.dropdown.messages .dropdown-menu > li > a .message-info .sender {
+    font-weight: 500;
+}
+
+#header .user-nav ul li.dropdown.messages .dropdown-menu > li > a .message-info .time {
+    font-weight: 300;
+    font-size: 9px;
+    color: #b2b2b2;
+}
+
+#header .user-nav ul li.dropdown.messages .dropdown-menu > li > a .message-info .message-content {
+    white-space: normal;
+    margin-top: 5px;
+}

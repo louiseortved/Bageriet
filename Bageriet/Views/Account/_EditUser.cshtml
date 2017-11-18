@@ -1,0 +1,80 @@
+﻿@model Bageriet.Models.ApplicationUser
+
+
+
+
+
+<div class="col-md-12 padding-top-editUser">
+        <form action="/Account/EditUser" method="post" class="form-horizontal form-bordered" id="editUser" enctype="multipart/form-data">
+
+                    @Html.AntiForgeryToken()
+            @Html.HiddenFor(model => model.Id)
+            @Html.HiddenFor(model => model.Email)
+            @Html.HiddenFor(model => model.UserName)
+            @Html.HiddenFor(model => model.ImageUrl)
+            @Html.HiddenFor(model => model.PasswordHash)
+            @Html.HiddenFor(model => model.SecurityStamp)
+    
+
+            <h4>Personal Information</h4>
+            <fieldset>
+                <div class="form-group">
+                    <label class="col-md-3 col-sm-3 col-xs-12 control-label" for="FirstName">First Name</label>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+                        <input type="text" class="form-control" id="FirstName" name="FirstName" placeholder="@Model.FirstName" required="">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-sm-3 col-xs-12 control-label" for="LastName">Last Name</label>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+                        <input type="text" class="form-control" id="LastName" name="LastName" placeholder="@Model.LastName" required="">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-sm-3 col-xs-12 control-label" for="Email">Email</label>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+                        <input type="text" class="form-control" id="Email" name="Email" value="@Model.Email" readonly>
+                    </div>
+                </div>
+
+            </fieldset>
+            <hr class="dotted tall">
+            <h4>About Yourself</h4>
+            <fieldset>
+
+                <div class="form-group">
+                    <label class="col-md-3 col-sm-3 col-xs-12 control-label" for="Address">Address</label>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+                        <input type="text" class="form-control" id="Address" name="Adress" placeholder="@Model.Adress" required="">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-sm-3 col-xs-12 control-label" for="Profession">Profession</label>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+                        <input type="text" class="form-control" id="Profession" name="Profession" placeholder="@Model.Profession" required="">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-sm-3 col-xs-12 control-label" for="Description">Description</label>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+                        <input type="text" class="form-control" id="Description" name="Description" placeholder="@Model.Description" >
+                    </div>
+                </div>
+                <hr class="dotted tall">
+              
+
+
+
+            </fieldset>
+           
+            <div class="panel-footer bg-none">
+                <div class="row">
+                    <div class="col-md-9 col-md-offset-3">
+                        <button type="submit" class="btn btn-default">Submit</button>
+                        <button type="reset" class="btn btn-default">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>

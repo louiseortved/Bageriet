@@ -1,0 +1,137 @@
+﻿@using Microsoft.AspNet.Identity
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link href="~/Content/Styles/css/FrontendLayout.css" rel="stylesheet" />
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+
+    @RenderSection("Styles", false)
+</head>
+<body>
+
+    <div class="container-fluid">
+
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar9">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+
+                <div class="brand-centered">
+                    <a class="navbar-brand" href="">
+
+                        <img class="img-responsive" src="~/Content/Styles/Images/Logo-bageriet.png" />
+                    </a>
+                </div>
+
+                <div id="navbar9" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li><a href="/Home/Index">Forside</a></li>
+                        <li><a href="/Home/Products">Produkter</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active"><a href="/Home/Contact">Kontakt</a></li>
+                        <li>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <a href="/Account/Profile/@User.Identity.GetUserId()"><i class="icon-user" style="padding-left:5px;"></i></a>
+
+                                <form action="/Account/LogOff" id="logoutForm" method="post">
+                                    @Html.AntiForgeryToken()
+                                    <a style="position: absolute; top: 15px; left: 40px; width: 100%; color: #fff;" href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+                                </form>
+
+
+                            }
+                            else
+                            {
+                                <a href="/Home/Login">Login</a>
+                            }
+
+
+                        </li>
+                        <li>
+
+
+                            <a href="/Home/Search"><span class="icon-magnifier"></span></a>
+
+                        </li>
+                    </ul>
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+            <!--/.container-fluid -->
+        </nav>
+    </div>
+
+
+
+    <div>
+        @RenderBody()
+
+        <footer>
+            <div class="row footerBox footer" style="margin: 0;">
+
+
+
+                <div class="col-md-12 col-sm-12 col-xs-12 footerUpperBox">
+                    <div class="col-md-12  col-sm-12 col-xs-12">
+                        <a class="btn btn-default text-center" href="#top">
+                            &Lambda;
+                        </a>
+
+                    </div>
+                    <div class="col-lg-4 col-lg-push-4 col-md-4 col-md-push-4 col-sm-4 col-sm-push-4 col-xs-12 ">
+                        <img class="img-responsive imgfooterBox" src="~/Content/Styles/Images/Logo-bageriet.png" />
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-4 col-md-4 col-md-push-4 col-sm-4 col-sm-push-4 col-xs-12 text-center">
+                            <h5 style="color: #efefef">Der er mange tilgængelige udgaver af Lorem Ipsum, men de fleste udgaver har gennemgået forandringer</h5>
+                        </div>
+
+                    </div>
+
+
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-12 footerLowerBox">
+                    <div class="col-md-4 col-md-push-4 col-sm-4 col-sm-push-4 col-xs-6 col-xs-push-6 text-center">
+                        <h5 style="color: #eee">
+                            Copyright &copy; 2017 Bageriet Aps
+                        </h5>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="~/Scripts/jquery-3.2.1.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    <script src="~/plugins/jquery.navgoco.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.js"></script>
+    <script src="~/Scripts/Sweetalert-plugin.js"></script>
+    <script src="~/Scripts/Validation.js"></script>
+    <script src="~/Scripts/Main.js"></script>
+
+
+
+
+</body>
+</html>
